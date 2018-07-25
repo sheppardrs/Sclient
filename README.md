@@ -11,11 +11,13 @@ Started from lab4 of CS52 at Dartmouth College taught by Timothy Pierson so this
  * add filters*
  * add sort*
  * add search bar*
+ * add favorites*
+ * number of views/upvotes/likes
  * remove delete button -- only show on profile page
  * add AWS S3 for image uploading*
  * add chat functionality between users*
  * add commenting?
- 
+
 `*` involves server side as well
 
 
