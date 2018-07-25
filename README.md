@@ -1,10 +1,23 @@
-# Lab4 for cs52
+# Client for Sharity MVP
 ## Sheppard Somers
 July 2018
-Built from course notes and assignments as well as stack exchange and [youtube](https://www.youtube.com/watch?v=Td-2D-_7Y2E&index=20&list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b).
+Started from lab4 of CS52 at Dartmouth College taught by Timothy Pierson so this is built from course notes and assignments as well as stack exchange and [youtube](https://www.youtube.com/watch?v=Td-2D-_7Y2E&index=20&list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b).
 
-# Possible Updates
-Pass an ```onEdit``` prop with a function that creates the link to the ```Post``` and ```FullPost``` components so that they are really just presentational. Style ```refresh``` button. Fix color scheme. Make ```sign out ``` be the same style and color as the other links in navbar. Make hamburger menu.
+# TODO
+ * add profile pages
+ * add landing page
+ * add usernames*
+ * display offers and requests*
+ * add filters*
+ * add sort*
+ * add search bar*
+ * remove delete button -- only show on profile page
+ * add AWS S3 for image uploading*
+ * add chat functionality between users*
+ * add commenting?
+ 
+`*` involves server side as well
+
 
 # Do Some Extra Credit
 
