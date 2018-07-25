@@ -4,6 +4,7 @@ July 2018
 Started from lab4 of CS52 at Dartmouth College taught by Timothy Pierson so this is built from course notes and assignments as well as stack exchange and [youtube](https://www.youtube.com/watch?v=Td-2D-_7Y2E&index=20&list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b).
 
 # TODO
+ * display errors for failures like unauthorized delete or any other error codes received from server
  * add profile pages
  * add landing page
  * add usernames*
@@ -78,4 +79,4 @@ This manages the ```all``` field of the global state which stores the whole list
 Creates the redux store and loads the ```App``` component to the id ```main``` from index.html.
 
 # Running
-Run `yarn add --dev babel-preset-react babel-plugin-transform-class-properties` after copying if the compilation fails.
+Run ```yarn``` to import everything and make the linter happy. If that fails, run `yarn add --dev babel-preset-react babel-plugin-transform-class-properties` after copying if the compilation fails.
