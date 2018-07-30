@@ -138,6 +138,11 @@ nav {
   font-size: inherit;
 }
 
+.toggle-req-offer button:active {
+  background: none;
+  border: none;
+}
+
 // Sorting and filtering
 .sort-buttons button {
   background: none;
@@ -146,6 +151,12 @@ nav {
   padding: 0;
   color: $text-unselected;
   font-size: inherit;
+}
+
+//highlighting current
+#sort-selected {
+  font-weight: bold;
+  color: red;
 }
 
 .sort-buttons {

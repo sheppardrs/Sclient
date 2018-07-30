@@ -8,7 +8,8 @@ import Controls from '../containers/controls';
 // import FullPost from './fullpost';
 import SinglePost from '../containers/post';
 import AddAPost from '../containers/addpost';
-import SignInUpAUser from '../containers/signInorUp';
+import SignInUser from '../containers/signIn';
+import SignUp from '../containers/signUp';
 import EditAPost from '../containers/editpost';
 import Nav from '../components/nav';
 import RequireAuth from '../containers/requireAuth';
@@ -58,7 +59,8 @@ const App = () => {
         <Nav />
         <Switch>
           <Route exact path="/" component={Welcome} />
-          <Route path="/signin" component={SignInUpAUser} />
+          <Route path="/signin" component={SignInUser} />
+          <Route path="/signup" component={SignUp} />
           <Route path="/posts/new" component={RequireAuth(AddAPost)} />
           <Route path="/about" component={About} />
           <Route exact path="/posts/:postID" component={SinglePost} />

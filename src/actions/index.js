@@ -126,9 +126,14 @@ export function deletePost(id, history) {
 
 export function likePost(id, history) {
   return (dispatch) => {
+    console.log('history', history.location.pathname);
     axios.patch(`${ROOT_URL}/posts/${id}${API_KEY}`, { headers: { authorization: localStorage.getItem('token') } }).then((response) => {
       // history.push('/');
-      dispatch(fetchPosts());
+      if (history.location.pathname === '/') {
+        dispatch(fetchPosts());
+      } else {
+        dispatch(fetchPost(id));
+      }
     }).catch((error) => {
       // hit an error -> do something else
       console.log('FAILED IN ACTION likePost');

@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import SignInUp from '../components/signInorUp';
-import { signinUser, signupUser } from '../actions/index';
+import SignIn from '../components/signIn';
+import { signinUser } from '../actions/index';
 
 
-const SignInUpAUser = (props) => {
+const SignInUser = (props) => {
   return (
-    <SignInUp
+    <SignIn
       signinUser={props.signinUser}
       signupUser={props.signupUser}
       history={props.history}
@@ -38,4 +38,4 @@ const SignInUpAUser = (props) => {
 // react-redux glue -- outputs Container that
 // knows state in properties
 // new way to connect with react router 4
-export default withRouter(connect(null, { signinUser, signupUser })(SignInUpAUser));
+export default withRouter(connect(null, { signinUser })(SignInUser));

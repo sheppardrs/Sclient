@@ -5,13 +5,14 @@ import React from 'react';
 // takes props:
 // signinUser should be the action creator signinUser
 // signupUser -> action creator signupUser
-class SignInUp extends React.Component {
+class SignUp extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: '',
       password: '',
+      username: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,18 +31,15 @@ class SignInUp extends React.Component {
     const user = {
       email: this.state.email,
       password: this.state.password,
+      username: this.state.username,
     };
     // console.log('You submitted:', user, '.');
-    const InorUp = e.target.name;
-    if (InorUp === 'signin') {
-      this.props.signinUser(user, this.props.history);
-    } else {
-      this.props.signupUser(user, this.props.history);
-    }
+    this.props.signupUser(user, this.props.history);
     // reset local state
     this.setState({
       email: '',
       password: '',
+      username: '',
     });
     e.preventDefault();
   }
@@ -66,6 +64,14 @@ class SignInUp extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
+          <textarea
+            type="text"
+            id="username-input"
+            name="username"
+            placeholder="username"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
           <button
             className="signup-button"
             name="signup"
@@ -75,19 +81,10 @@ class SignInUp extends React.Component {
           >
             Sign Up
           </button>
-          <button
-            className="signin-button"
-            name="signin"
-            type="submit"
-            value="SignIn"
-            onClick={this.handleSubmit}
-          >
-            Sign In
-          </button>
         </form>
       </div>
     );
   }
 }
 
-export default SignInUp;
+export default SignUp;

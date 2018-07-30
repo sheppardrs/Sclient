@@ -9,6 +9,9 @@ class Controls extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      sort: 'newest',
+    };
   }
   componentWillMount() {
     const select = {
@@ -24,22 +27,39 @@ class Controls extends React.Component {
       sort: e.target.name,
     };
     this.props.fetchPosts(select);
+    this.setState({ sort: e.target.name });
   }
 
   render() {
     return (
       <div className="sort-buttons">
         Sort By:
-        <button onClick={this.handleClick} name="newest">
+        <button
+          onClick={this.handleClick}
+          id={(this.state.sort === 'newest') ? 'sort-selected' : ''}
+          name="newest"
+        >
           Recent
         </button>
-        <button onClick={this.handleClick} name="trending">
+        <button
+          onClick={this.handleClick}
+          id={(this.state.sort === 'trending') ? 'sort-selected' : ''}
+          name="trending"
+        >
           Trending
         </button>
-        <button onClick={this.handleClick} name="location">
+        <button
+          onClick={this.handleClick}
+          id={(this.state.sort === 'location') ? 'sort-selected' : ''}
+          name="location"
+        >
           Location
         </button>
-        <button onClick={this.handleClick} name="title">
+        <button
+          onClick={this.handleClick}
+          id={(this.state.sort === 'title') ? 'sort-selected' : ''}
+          name="title"
+        >
           Alphabetical
         </button>
       </div>
