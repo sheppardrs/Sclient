@@ -28,12 +28,12 @@ const API_KEY = '';
 
 
 // get all the posts
-export function fetchPosts() {
+export function fetchPosts(select) {
   // axios get
   return (dispatch) => {
-    axios.get(`${ROOT_URL}/posts${API_KEY}`).then((response) => {
-      // do something with the response.data (some json)
-      // console.log('just got the posts from api', response.data);
+    // get is old, patch is for filtering
+    // axios.get(`${ROOT_URL}/posts${API_KEY}`).then((response) => {
+    axios.patch(`${ROOT_URL}/posts${API_KEY}`, select).then((response) => {
       const posts = response.data;
       // console.log('posts is: ', posts);
       dispatch({

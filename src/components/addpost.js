@@ -8,6 +8,7 @@ class AddPost extends React.Component {
       title: '',
       tags: '',
       content: '',
+      location: '',
       cover_url: '',
       id: '',
     };
@@ -25,6 +26,7 @@ class AddPost extends React.Component {
         title: this.props.post.title,
         tags: this.props.post.tags,
         content: this.props.post.content,
+        location: this.props.post.location,
         cover_url: this.props.post.cover_url,
       });
     }
@@ -40,12 +42,14 @@ class AddPost extends React.Component {
 
   // submit with the local state and reset local state
   handleSubmit(e) {
-    console.log('You submitted.');
+    console.log('You submitted.', e.target.name, 'request', e.target.name === 'request');
     const post = {
       title: this.state.title,
       tags: this.state.tags,
       cover_url: this.state.cover_url,
       content: this.state.content,
+      location: this.state.location,
+      request: (e.target.name === 'request'),
       id: this.state.id,
     };
     this.props.createPost(post, this.props.history);
@@ -54,6 +58,7 @@ class AddPost extends React.Component {
       title: '',
       tags: '',
       content: '',
+      location: '',
       cover_url: '',
     });
     e.preventDefault();
@@ -69,6 +74,14 @@ class AddPost extends React.Component {
             name="title"
             placeholder="Tight Title"
             value={this.state.title}
+            onChange={this.handleChange}
+          />
+          <textarea
+            type="text"
+            id="location-input"
+            name="location"
+            placeholder="Loco Location"
+            value={this.state.location}
             onChange={this.handleChange}
           />
           <div id="tag-cover_url-container">
@@ -97,13 +110,29 @@ class AddPost extends React.Component {
             value={this.state.content}
             onChange={this.handleChange}
           />
-          <button
+          {/* <button
             className="save-button"
             onClick={this.handleSubmit}
             type="submit"
             value="Submit"
+          /> */}
+          <button
+            className="save-button"
+            name="offer"
+            type="submit"
+            value="Offer"
+            onClick={this.handleSubmit}
           >
-            <i className="fas fa-save" />
+            Offer
+          </button>
+          <button
+            className="save-button"
+            name="request"
+            type="submit"
+            value="Request"
+            onClick={this.handleSubmit}
+          >
+            Request
           </button>
         </form>
       </div>

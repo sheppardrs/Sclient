@@ -7,7 +7,7 @@ import { createPost } from '../actions/index';
 
 const AddAPost = (props) => {
   const post = {
-    title: '', tags: '', content: '', cover_url: '',
+    title: '', tags: '', content: '', cover_url: '', location: '',
   };
   return (
     <AddPost

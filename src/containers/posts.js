@@ -1,7 +1,8 @@
-import React from 'react';
+// import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import Post from '../components/post';
+// import Post from '../components/post';
+import Posts from '../components/posts';
 import { fetchPost, deletePost, likePost } from '../actions/index';
 
 // this can be a dumb or smart component -
@@ -14,29 +15,29 @@ import { fetchPost, deletePost, likePost } from '../actions/index';
 //   );
 // };
 
-class Posts extends React.Component {
-  render() {
-    if (this.props.posts) {
-      return (
-        this.props.posts.map((post) => {
-          return (
-            <Post
-              key={post.id}
-              post={post}
-              onSelect={this.props.fetchPost}
-              onDelete={this.props.deletePost}
-              onLike={this.props.likePost}
-              history={this.props.history}
-            />
-          );
-        })
-
-      );
-    } else {
-      return (<h1>props.posts does not exist!</h1>);
-    }
-  }
-}
+// class Posts extends React.Component {
+//   render() {
+//     if (this.props.posts) {
+//       return (
+//         this.props.posts.map((post) => {
+//           return (
+//             <Post
+//               key={post.id}
+//               post={post}
+//               onSelect={this.props.fetchPost}
+//               onDelete={this.props.deletePost}
+//               onLike={this.props.likePost}
+//               history={this.props.history}
+//             />
+//           );
+//         })
+//
+//       );
+//     } else {
+//       return (<h1>props.posts does not exist!</h1>);
+//     }
+//   }
+// }
 
 
 // connects particular parts of redux state

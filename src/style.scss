@@ -8,6 +8,8 @@ $post-background: $background;
 //$background: #BEF0D2;
 //$post-background: #BEF0D2;
 $text-color: rgb(190, 15, 4);
+$text-unselected: lighten($text-color, 30%);
+$text-selected: $text-color;
 $accent-1: gray;
 $accent-2: #A44A3F;
 
@@ -58,10 +60,6 @@ body, html {
 }
 
 
-.active {
-  color: pink;
-}
-
 // The Navbar
 nav {
   display: flex;
@@ -83,9 +81,13 @@ nav {
   text-transform: uppercase;
 }
 
+
+.active {
+  color: pink;
+}
+
 .navlink {
   text-decoration: none;
-
 }
 
 .signout-button {
@@ -98,6 +100,65 @@ nav {
   color: inherit;
 }
 
+// box with posts and filters
+.posts-filters-box {
+  display: flex;
+  flex-direction: row;
+  margin: 0 5% 0 5%;
+}
+
+.sort-buttons{
+  margin: 25pt 0 0 0;
+}
+
+// toggle
+.toggle-req-offer {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  color: $text-color;
+}
+
+.toggle-selected {
+  font-weight: bold;
+  font-style: normal;
+}
+
+#toggle-req-offer-request{
+  margin-right: 15pt;
+}
+
+.toggle-req-offer button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: $text-unselected;
+  font-size: inherit;
+}
+
+// Sorting and filtering
+.sort-buttons button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: $text-unselected;
+  font-size: inherit;
+}
+
+.sort-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.sort-buttons button:focus {
+  font-weight: bold;
+  font-style: normal;
+  color: $text-selected;
+}
+
 //  Post
 .post {
   display: flex;
@@ -108,7 +169,7 @@ nav {
   border-width: thin;
   border-color: $accent-1;
   margin: 2%;
-  padding: 2pt 10pt 2pt 10pt;
+  padding: 2pt 5pt 2pt 5pt;
   background-color: $post-background;
   width: auto;
 }
@@ -116,35 +177,47 @@ nav {
 .post img {
   width: 15%;
   height: 15%;
+  margin: 5pt 0 0 0;
 }
 
 .post-box {
   width: 80%;
-  padding-left: 5%;
+  padding-left: 5pt;
 }
 
 // Show the title and buttons for edit, delete and heart
 .post-header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+
   align-items: center;
-  border-bottom-style: solid;
-  border-bottom-color: $accent-1;
-  border-bottom-width: thin;
-  text-transform: uppercase;
+  // border-bottom-style: solid;
+  // border-bottom-color: $accent-1;
+  // border-bottom-width: thin;
 }
 
 .post-header h4 {
   align-self: flex-start;
   color: $accent-1;
+  margin: 5pt 10pt 5pt 0;
+  text-transform: uppercase;
+}
+
+.post-header h4:hover {
+  border-bottom-style: solid;
 }
 
 .post-title-link {
   color: $accent-1;
   text-decoration: none;
+  padding-bottom: -10pt;
 }
 
+.post-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .post-button-link {
   color: $text-color;
 }
@@ -156,9 +229,13 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  margin: 0 0 5pt 0;
 }
 
+.post-text p {
+  margin: 0;
+}
 .post-text div i {
   align-self: flex-end;
 }
@@ -214,9 +291,10 @@ i {
   border-top: 3pt solid $accent-1;
   border-bottom: 3pt solid $accent-1;
   border-radius: 10pt;
+  margin: 0 7% 0 7%;
   padding: 3% 3% 3% 3%;
   color: $accent-1;
-  height: 70vh;
+  // height: 70vh;
 }
 
 input {
@@ -274,11 +352,13 @@ form {
 
 .save-button {
   border: solid;
-  width: 15%;
+  width: 30%;
   border-width: 1pt;
   border-radius: 30pt;
+  margin: 0 0 5pt 0;
   background-color: $button-color;
   color: $logo-color;
+  font-size: 18pt;
 }
 
 .save-button:hover {

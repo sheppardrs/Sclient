@@ -1,6 +1,6 @@
 import React from 'react';
 // import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
-import marked from 'marked';
+// import marked from 'marked';
 import { NavLink } from 'react-router-dom';
 
 // hard coded post for UI design
@@ -48,58 +48,46 @@ class Post extends React.Component {
             >
               <h4>{this.props.post.title}</h4>
             </NavLink>
-            <div className="post-bottons">
-              <i
-                onClick={this.handleDelete}
-                tabIndex={-1}
-                className="fas fa-trash"
-                role="button"
-              />
-              <NavLink
-                className="post-button-link"
-                to={`/posts/${this.props.post.id}/edit`}
-                exact
-                role="button"
-                tabIndex={-1}
-              >
-                <i
-                //  onClick={this.handleEdit}
-                  tabIndex={-1}
-                  className="fas fa-edit"
-                  role="button"
-                />
-              </NavLink>
-              <i
-                onClick={this.handleLike}
-                tabIndex={-1}
-                className="fas fa-heart"
-                role="button"
-              > {this.props.post.likes}
-              </i>
-            </div>
+            <p>{this.props.post.location}</p>
           </div>
           <div className="post-text">
-            <div
+            {/* <div
               className="postBody"
               dangerouslySetInnerHTML={{
-              __html: marked(this.props.post.tags || ''),
+              __html: marked(this.props.post.preview || ''),
             }}
-            />
-            <NavLink
-              to={`/posts/${this.props.post.id}`}
-              exact
-              role="button"
-              tabIndex={-1}
-              className="post-button-link"
-            >
-              <i
-                onClick={this.handleView}
-                tabIndex={-1}
-                className="fas fa-arrow-alt-circle-right"
-                role="button"
-              />
-            </NavLink>
+          /> */}
+            <div className="post-preview">
+              {this.props.post.preview}...
+            </div>
+            <div className="post-tags">
+              {this.props.post.tags}
+            </div>
           </div>
+        </div>
+        <div className="post-buttons">
+          <i
+            onClick={this.handleLike}
+            tabIndex={-1}
+            className="fas fa-heart"
+            role="button"
+          >
+            {this.props.post.likes}
+          </i>
+          <NavLink
+            to={`/posts/${this.props.post.id}`}
+            exact
+            role="button"
+            tabIndex={-1}
+            className="post-button-link"
+          >
+            <i
+              onClick={this.handleView}
+              tabIndex={-1}
+              className="fas fa-arrow-alt-circle-right"
+              role="button"
+            />
+          </NavLink>
         </div>
       </div>
     );

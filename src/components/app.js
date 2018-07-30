@@ -43,10 +43,9 @@ const About = (props) => {
 
 const Welcome = (props) => {
   return (
-    <div>
-      Welcome
-      <Posts />
+    <div className="posts-filters-box">
       <Controls />
+      <Posts />
       {/* <Posts posts={posts} /> */}
     </div>
   );
