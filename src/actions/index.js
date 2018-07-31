@@ -158,21 +158,25 @@ export function signinUser({ email, password }, history) {
       // do something with the response.data (some json)
       // console.log('posts is: ', posts);
       localStorage.setItem('token', response.data.token);
+      if (response.data.username) {
+        localStorage.setItem('username', response.data.username);
+      }
       dispatch({ type: ActionTypes.AUTH_USER });
       history.push('/');
     }).catch((error) => {
       // hit an error -> do something else
       dispatch(authError(`Signin failed: ${error.response.data}`));
-      console.log('FAILED IN ACTION createPost');
+      console.log('FAILED in ACTION: signin failed');
+      // alert('signin failed. Please try again or sign up.');
     });
   };
 }
 
 // Same as signin but using signup route
-export function signupUser({ email, password }, history) {
+export function signupUser({ email, password, username }, history) {
   // from createPost
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/signup`, { email, password }).then((response) => {
+    axios.post(`${ROOT_URL}/signup`, { email, password, username }).then((response) => {
       // do something with the response.data (some json)
       localStorage.setItem('token', response.data.token);
       history.push('/');

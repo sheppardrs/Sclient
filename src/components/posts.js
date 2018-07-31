@@ -41,14 +41,14 @@ class Posts extends React.Component {
                 id="toggle-req-offer-request"
                 // style={{ fontWeight: 'bold' }}
               >
-                Request
+                Requests
               </i>
               <button
                 // className="toggle-unselected"
                 onClick={this.toggleReqOffer}
                 name="Offer"
               >
-              Offer
+              Offers
               </button>
             </div>
             :
@@ -59,13 +59,13 @@ class Posts extends React.Component {
                 onClick={this.toggleReqOffer}
                 name="Request"
               >
-              Request
+              Requests
               </button>
               <i
                 className="toggle-selected"
                 // style={{ fontWeight: 'bold' }}
               >
-                Offer
+                Offers
               </i>
             </div>
             }

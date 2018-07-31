@@ -38,7 +38,8 @@ const Nav = (props) => {
           <li><NavLink className="navlink" to="/" exact>Home</NavLink></li>
           <li><NavLink className="navlink" to="/posts/new">Add Post</NavLink></li>
           <li><NavLink className="navlink" to="/about">About</NavLink></li>
-          <li><NavLink className="navlink" to="/signin">Sign In/Up</NavLink></li>
+          <li><NavLink className="navlink" to="/signin">Sign In</NavLink></li>
+          <li><NavLink className="navlink" to="/signup">Sign Up</NavLink></li>
         </ul>
       </nav>
     );

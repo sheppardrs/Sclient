@@ -14,22 +14,21 @@ class FullPost extends React.Component {
   }
 
   handleDelete(e) {
-    console.log(`Delete ${this.props.post.title}`);
+    // console.log(`Delete ${this.props.post.title}`);
     this.props.onDelete(this.props.post._id, this.props.history);
   }
 
   handleLike(e) {
     this.props.onLike(this.props.post._id, this.props.history);
-    console.log(`Like ${this.props.post.title}`);
+    // console.log(`Like ${this.props.post.title}`);
   }
 
   render() {
-    return (
-      <div className="full-post">
-        <div className="full-post-header">
-          <img src={this.props.post.cover_url} alt="cover for post" />
-          <h4>{this.props.post.title}</h4>
-          <div>
+    let editbutton;
+    if (this.props.post.author) {
+      if (this.props.post.author.username === localStorage.username) {
+        editbutton = (
+          <div className="post-buttons">
             <i
               onClick={this.handleDelete}
               tabIndex={-1}
@@ -57,6 +56,56 @@ class FullPost extends React.Component {
               role="button"
             > {this.props.post.likes}
             </i>
+          </div>);
+      } else {
+        editbutton = (
+          <div className="post-buttons">
+            <i
+              onClick={this.handleLike}
+              tabIndex={-1}
+              className="fas fa-heart"
+              role="button"
+            > {this.props.post.likes}
+            </i>
+          </div>);
+      }
+    } else {
+      editbutton = <div>loading...</div>;
+    }
+    return (
+      <div className="full-post">
+        <div className="full-post-header">
+          <img src={this.props.post.cover_url} alt="cover for post" />
+          <h4>{this.props.post.title}</h4>
+          <div>
+            {editbutton}
+            {/* old buttons <i
+              onClick={this.handleDelete}
+              tabIndex={-1}
+              className="fas fa-trash"
+              role="button"
+            />
+            <NavLink
+              className="full-post-button-link"
+              to={`/posts/${this.props.post.id}/edit`}
+              exact
+              role="button"
+              tabIndex={-1}
+            >
+              <i
+                onClick={this.handleEdit}
+                tabIndex={-1}
+                className="fas fa-edit"
+                role="button"
+              />
+            </NavLink>
+            <i
+              onClick={this.handleLike}
+              tabIndex={-1}
+              className="fas fa-heart"
+              role="button"
+            > {this.props.post.likes}
+          </i> */}
           </div>
         </div>
         {/* <p>{this.props.post.text}</p> */}
@@ -66,6 +115,12 @@ class FullPost extends React.Component {
               __html: marked(this.props.post.content || ''),
             }}
         />
+        <div
+          className="full-post-author"
+        >
+          username:
+          { this.props.post.author ? ` ${this.props.post.author.username}` : 'loading' }
+        </div>
       </div>
     );
   }

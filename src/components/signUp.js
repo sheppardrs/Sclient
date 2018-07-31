@@ -13,6 +13,7 @@ class SignUp extends React.Component {
       email: '',
       password: '',
       username: '',
+      failed: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,13 +41,21 @@ class SignUp extends React.Component {
       email: '',
       password: '',
       username: '',
+      failed: true,
     });
     e.preventDefault();
   }
 
   render() {
+    const failedMess = this.state.failed ? (
+      <div className="failure-mess">Sign up failed. Please try again
+        and be sure to fill each field.
+      </div>)
+      :
+      <div />;
     return (
       <div className="add-post">
+        {failedMess}
         <form onSubmit={this.handleSubmit} className="add-note-form">
           <textarea
             type="text"
