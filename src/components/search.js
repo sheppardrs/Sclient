@@ -17,6 +17,15 @@ class Search extends React.Component {
     // const field = e.target.name;
     // this.setState({ [field]: e.target.value });
     this.props.search(e.target.value);
+    if (e.target.name === 'clear') {
+      const select = {
+        filter: this.props.filterV,
+        sort: this.props.sortV,
+        search: '',
+      };
+      this.props.fetchPosts(select);
+    }
+    e.preventDefault();
   }
 
   // submit with the local state and reset local state
@@ -56,8 +65,7 @@ class Search extends React.Component {
             className="search-button"
             name="clear"
             value=""
-            type="clear"
-            onClick={this.handleClick}
+            onClick={this.handleChange}
           >
               Clear Search
           </button>
