@@ -79,7 +79,7 @@ class SignIn extends React.Component {
             onChange={this.handleChange}
           />
           <button
-            className="signin-button"
+            className="save-button"
             name="signin"
             type="submit"
             value="SignIn"

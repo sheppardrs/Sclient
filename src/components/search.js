@@ -49,7 +49,7 @@ class Search extends React.Component {
             id="search-input"
             name="term"
             placeholder="What are you looking for?"
-
+            value={this.props.searchV}
             onChange={this.handleChange}
           />
           <button
