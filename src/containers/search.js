@@ -7,9 +7,9 @@ import { fetchPosts, search } from '../actions/index';
 
 const mapStateToProps = state => (
   {
-    term: state.search,
-    filter: state.filter,
-    sortby: state.sortby,
+    searchV: state.search,
+    filterV: state.filterV,
+    sortV: state.sortV,
   }
 );
 // react-redux glue -- outputs Container that

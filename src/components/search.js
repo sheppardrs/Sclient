@@ -22,8 +22,9 @@ class Search extends React.Component {
   // submit with the local state and reset local state
   handleSubmit(e) {
     const select = {
-      filter: this.props.filterby,
-      sort: this.props.sortby,
+      filter: this.props.filterV,
+      sort: this.props.sortV,
+      search: this.props.searchV,
     };
     this.props.fetchPosts(select);
     // reset local state
