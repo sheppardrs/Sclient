@@ -164,12 +164,6 @@ nav {
   flex-direction: column;
 }
 
-.sort-buttons button:focus {
-  font-weight: bold;
-  font-style: normal;
-  color: $text-selected;
-}
-
 //  Post
 .post {
   display: flex;

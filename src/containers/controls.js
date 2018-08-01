@@ -3,61 +3,77 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 
-import { fetchPosts } from '../actions';
+import { fetchPosts, sortby, filterby } from '../actions';
 
 class Controls extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.state = {
-      sort: 'newest',
-    };
+    // this.state = {
+    //   sort: 'newest',
+    // };
   }
   componentWillMount() {
+    // const select = {
+    //   filter: 'none',
+    //   sort: 'newest',
+    // };
+    // this.props.fetchPosts(select);
+    // new with redux state
     const select = {
-      filter: 'none',
-      sort: 'newest',
+      filter: this.props.filterby,
+      sort: this.props.sortV,
+      search: this.props.search,
     };
     this.props.fetchPosts(select);
   }
 
   handleClick(e) {
+    // const select = {
+    //   filter: 'none',
+    //   sort: e.target.name,
+    // };
+    // this.props.fetchPosts(select);
+    // this.setState({ sort: e.target.name });
+    // with redux state
+    this.props.sortby(e.target.name);
     const select = {
-      filter: 'none',
+      filter: this.props.filterby,
       sort: e.target.name,
+      search: this.props.search,
     };
     this.props.fetchPosts(select);
-    this.setState({ sort: e.target.name });
   }
 
   render() {
+    console.log('this.props.sortV', this.props.sortV);
     return (
       <div className="sort-buttons">
         Sort By:
         <button
           onClick={this.handleClick}
-          id={(this.state.sort === 'newest') ? 'sort-selected' : ''}
+          id={(this.props.sortV === 'newest') ? 'sort-selected' : ''}
           name="newest"
         >
           Recent
         </button>
         <button
           onClick={this.handleClick}
-          id={(this.state.sort === 'trending') ? 'sort-selected' : ''}
+          id={(this.props.sortV === 'trending') ? 'sort-selected' : ''}
           name="trending"
         >
           Trending
         </button>
         <button
           onClick={this.handleClick}
-          id={(this.state.sort === 'location') ? 'sort-selected' : ''}
+          id={(this.props.sortV === 'location') ? 'sort-selected' : ''}
           name="location"
         >
           Location
         </button>
         <button
           onClick={this.handleClick}
-          id={(this.state.sort === 'title') ? 'sort-selected' : ''}
+          id={(this.props.sortV === 'title') ? 'sort-selected' : ''}
           name="title"
         >
           Alphabetical
@@ -67,6 +83,13 @@ class Controls extends React.Component {
   }
 }
 
+const mapStateToProps = state => (
+  {
+    sortV: state.sortV,
+    filterV: state.filterV,
+    search: state.search,
+  }
+);
 // react-redux glue -- outputs Container that knows how to call actions
 // new way to connect with react router 4
-export default withRouter(connect(null, { fetchPosts })(Controls));
+export default withRouter(connect(mapStateToProps, { fetchPosts, sortby, filterby })(Controls));

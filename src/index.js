@@ -24,7 +24,7 @@ import { ActionTypes } from './actions';
 // const posts = [post1, post2, post3];
 
 
-const store = createStore(reducers, { }, compose(
+const store = createStore(reducers, { sortV: 'newest' }, compose(
   applyMiddleware(thunk, logger),
   window.devToolsExtension ? window.devToolsExtension() : f => f,
 ));

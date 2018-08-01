@@ -1,19 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 // handles both singin and  sign up for now since both just require email & Password
 // takes props:
 // signinUser should be the action creator signinUser
 // signupUser -> action creator signupUser
-class SignIn extends React.Component {
+class Search extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      email: '',
-      password: '',
-      failed: false,
-    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,71 +14,51 @@ class SignIn extends React.Component {
 
   // change the state based on which input was changed
   handleChange(e) {
-    const field = e.target.name;
-    this.setState({ [field]: e.target.value });
+    // const field = e.target.name;
+    // this.setState({ [field]: e.target.value });
+    this.props.search(e.target.value);
   }
 
   // submit with the local state and reset local state
   handleSubmit(e) {
-    // console.log('the event target is:', e.target.name, '.');
-    const user = {
-      email: this.state.email,
-      password: this.state.password,
+    const select = {
+      filter: this.props.filterby,
+      sort: this.props.sortby,
     };
-    // console.log('You submitted:', user, '.');
-    this.props.signinUser(user, this.props.history);
+    this.props.fetchPosts(select);
     // reset local state
-    this.setState({
-      email: '',
-      password: '',
-      failed: true,
-    });
     e.preventDefault();
   }
 
   render() {
-    const failedMess = this.state.failed ? (
-      <div className="failure-mess">Sign in failed. Please{' '}
-        <NavLink
-          className="signup-link"
-          to="/signup"
-          exact
-          role="link"
-          tabIndex={-1}
-        >sign up
-        </NavLink>
-        {' '}or try again.
-      </div>)
-      :
-      <div />;
     return (
-      <div className="add-post">
-        {failedMess}
-        <form onSubmit={this.handleSubmit} className="add-note-form">
-          <textarea
+      <div className="search-bar">
+        <form className="search-form">
+          <input
             type="text"
-            id="email-input"
-            name="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <textarea
-            type="text"
-            id="password-input"
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
+            id="search-input"
+            name="term"
+            placeholder="What are you looking for?"
+
             onChange={this.handleChange}
           />
           <button
-            className="signin-button"
-            name="signin"
+            className="search-button"
+            name="search"
             type="submit"
-            value="SignIn"
+            value="Search"
             onClick={this.handleSubmit}
           >
-            Sign In
+            Search
+          </button>
+          <button
+            className="search-button"
+            name="clear"
+            value=""
+            type="clear"
+            onClick={this.handleClick}
+          >
+              Clear Search
           </button>
         </form>
       </div>
@@ -93,4 +66,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default Search;

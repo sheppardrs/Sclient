@@ -8,13 +8,13 @@ export const ActionTypes = {
   AUTH_USER: 'AUTH_USER',
   DEAUTH_USER: 'DEAUTH_USER',
   AUTH_ERROR: 'AUTH_ERROR',
+  SEARCH: 'SEARCH',
+  SORTV: 'SORTV',
+  FILTERV: 'FILTERV',
   // will add these as we go
   // UPDATE_POST: 'UPDATE_POST',
   // CREATE_POST: 'CREATE_POST',
   // DELETE_POST: 'DELETE_POST',
-  // old from starter
-  // INCREMENT: 'INCREMENT',
-  // DECREMENT: 'DECREMENT',
 };
 
 
@@ -140,8 +140,9 @@ export function likePost(id, history) {
     });
   };
 }
-// Action creators for signing in/out/up
 
+
+// Action creators for signing in/out/up
 export function authError(error) {
   return {
     type: ActionTypes.AUTH_ERROR,
@@ -199,6 +200,26 @@ export function signoutUser(history) {
   };
 }
 
+// Search, filter, sort action creators
+export function search(term) {
+  return (dispatch) => {
+    dispatch({ type: ActionTypes.SEARCH, payload: term });
+  };
+}
+
+export function sortby(order) {
+  return {
+    type: ActionTypes.SORTV,
+    payload: order,
+  };
+}
+
+export function filterby(order) {
+  return {
+    type: ActionTypes.FILTERV,
+    payload: order,
+  };
+}
 
 // export function increment() {
 //   return {
