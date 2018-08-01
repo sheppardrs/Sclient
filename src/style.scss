@@ -1,21 +1,19 @@
 $key-color: #55E5AB;
 $highlight-color: #38DABE;
-$button-color:  #55E5AB;
-$border-color: #4A4A4A;
-//$logo-color: #C06958;
-//$logo-color: rgb(55, 199, 145);
-$logo-color: white;
-// $background: rgb(55, 199, 145);
-$background: #FAFAFA;
-$post-background: white;
-//$background: #BEF0D2;
-//$post-background: #BEF0D2;
 $text-color: #4A4A4A;
-$text-selected: #38DABE;
-$text-unselected: $text-selected; //delete this
-$accent-1: #38DABE;
-$accent-2: #38DABE;
+$text-color-light: #959595;
+$background: #FAFAFA;
+$item-background: white;
 $gradient: linear-gradient(to right, $key-color, $highlight-color);
+// uses
+$button-color: $key-color;
+$border-color: $text-color;
+$logo-color: $item-background;
+$post-background: $item-background;
+$text-selected: $highlight-color;
+$text-unselected: $text-selected; //delete this
+
+
 
 
 body, html {
@@ -24,6 +22,14 @@ body, html {
   background: $background;
   height: 100%;
   color: $text-color;
+  margin: 0;
+}
+
+button {
+  color: inherit;
+  border: 0;
+  background: 0;
+  font-size: inherit;
 }
 
 #logo_bird {
@@ -39,7 +45,6 @@ body, html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 5%;
   margin-top:  0;
   color: $logo-color;
 }
@@ -63,6 +68,40 @@ body, html {
   font-family: 'IM Fell English SC', serif;
 }
 
+// The search-bar
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#search-input {
+  height: 20pt;
+  border-color: $text-color-light;
+  border-style: solid;
+  border-width: thin;
+  border-right: 0;
+  border-radius: 3pt 0 0 3pt;
+  width: 120pt;
+  margin: 0;
+  padding: 0;
+
+}
+
+.search-bar button {
+  padding: 0 3pt 0 3pt;
+  background-color: $item-background;
+  height: 21pt;
+  border-style: solid;
+  border-color: $text-color-light;
+  border-width: thin;
+  border-left: 0;
+}
+
+.search-bar button:last-child{
+  border-radius: 0 3pt 3pt 0;
+}
+
 
 // The Navbar
 nav {
@@ -77,6 +116,11 @@ nav {
   flex-direction: row;
   justify-content: space-around;
   padding: 0;
+  color: $text-color;
+}
+
+a {
+  color: inherit;
 }
 
 .header li {
@@ -111,7 +155,7 @@ nav {
 .posts-filters-box {
   display: flex;
   flex-direction: row;
-  margin: 0 5% 0 5%;
+  margin: 3% 3% 0 3%;
 }
 
 // toggle
@@ -162,7 +206,7 @@ nav {
   border: none;
   margin: 0;
   padding: 0;
-  color: $text-color;
+  color: $text-color-light;
   font-size: inherit;
   text-align: left;
   font-weight: lighter;
@@ -179,7 +223,8 @@ nav {
 .post {
   display: flex;
   flex-direction: row;
-  color: $text-color;
+  justify-content: space-around;
+  color: $text-color-light;
   border-style: solid;
   border-width: thin;
   margin: 2%;
@@ -213,6 +258,7 @@ nav {
   align-self: flex-start;
   margin: 5pt 10pt 5pt 0;
   text-transform: uppercase;
+  color: $text-color;
 }
 
 .post-header h4:hover {
@@ -228,6 +274,8 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-content: flex-end;
+  color: $text-color;
 }
 
 .post-button-link {

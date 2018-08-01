@@ -17,7 +17,7 @@ class Search extends React.Component {
     // const field = e.target.name;
     // this.setState({ [field]: e.target.value });
     this.props.search(e.target.value);
-    if (e.target.name === 'clear') {
+    if (!e.target.name) {
       const select = {
         filter: this.props.filterV,
         sort: this.props.sortV,
@@ -43,33 +43,29 @@ class Search extends React.Component {
   render() {
     return (
       <div className="search-bar">
-        <form className="search-form">
-          <input
-            type="text"
-            id="search-input"
-            name="term"
-            placeholder="What are you looking for?"
-            value={this.props.searchV}
-            onChange={this.handleChange}
-          />
-          <button
-            className="search-button"
-            name="search"
-            type="submit"
-            value="Search"
-            onClick={this.handleSubmit}
-          >
-            Search
-          </button>
-          <button
-            className="search-button"
-            name="clear"
-            value=""
-            onClick={this.handleChange}
-          >
-              Clear Search
-          </button>
-        </form>
+        <input
+          type="text"
+          id="search-input"
+          name="term"
+          placeholder="What are you looking for?"
+          value={this.props.searchV}
+          onChange={this.handleChange}
+        />
+        <button
+          className="search-button"
+          name="search"
+          onClick={this.handleSubmit}
+        >
+          <i className="fa fa-search" aria-hidden="true" />
+        </button>
+        <button
+          className="search-button"
+          name="clear"
+          value=""
+          onClick={this.handleChange}
+        >
+          <i className="fa fa-times" aria-hidden="true" />
+        </button>
       </div>
     );
   }

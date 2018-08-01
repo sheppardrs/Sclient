@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
-
 import { signoutUser } from '../actions/index';
+// components
+import Search from '../containers/search';
 
 
 function Logo() {
@@ -34,6 +35,7 @@ const Nav = (props) => {
     return (
       <nav>
         <Logo />
+        <Search />
         <ul className="header">
           <li><NavLink className="navlink" to="/" exact>Home</NavLink></li>
           <li><NavLink className="navlink" to="/posts/new">Add Post</NavLink></li>

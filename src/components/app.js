@@ -13,7 +13,6 @@ import SignUp from '../containers/signUp';
 import EditAPost from '../containers/editpost';
 import Nav from '../components/nav';
 import RequireAuth from '../containers/requireAuth';
-import Search from '../containers/search';
 // import AddPost from './addpost';
 
 
@@ -46,7 +45,6 @@ const About = (props) => {
 const Welcome = (props) => {
   return (
     <div className="posts-page">
-      <Search />
       <div className="posts-filters-box">
         <Controls />
         <Posts />

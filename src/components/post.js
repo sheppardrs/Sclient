@@ -69,7 +69,7 @@ class Post extends React.Component {
           <i
             onClick={this.handleLike}
             tabIndex={-1}
-            className="fas fa-heart"
+            className="fas fa-arrow-up"
             role="button"
           >
             {this.props.post.likes}
