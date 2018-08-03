@@ -1,18 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { verifyUser } from '../actions/index';
 
 // handles both singin and  sign up for now since both just require email & Password
 // takes props:
 // signinUser should be the action creator signinUser
 // signupUser -> action creator signupUser
-class SignIn extends React.Component {
+class Verify extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: '',
-      password: '',
-      failed: false,
+      submitted: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,47 +28,37 @@ class SignIn extends React.Component {
   // submit with the local state and reset local state
   handleSubmit(e) {
     // console.log('the event target is:', e.target.name, '.');
-    const user = {
-      email: this.state.email,
-      password: this.state.password,
-    };
     // console.log('You submitted:', user, '.');
-    this.props.signinUser(user, this.props.history);
+    const mail = this.state.email;
+    verifyUser(mail);
     // reset local state
     this.setState({
       email: '',
-      password: '',
-      failed: true,
+      submitted: true,
     });
     e.preventDefault();
   }
 
   render() {
-    const failedMess = this.state.failed ? (
-      <div className="failure-mess">Sign in failed. Please{' '}
+    const submittedMess = this.state.submitted ? (
+      <div>
+        Check your inbox, you should have received an email with a link to  verify your account. The link expires after 10 hours.
+        Once you have verified your account {' '}
         <NavLink
-          className="signup-link"
-          to="/signup"
+          className="signin-link"
+          to="/signin"
           exact
           role="link"
           tabIndex={-1}
-        >sign up
+        >sign in
         </NavLink>
-        {' '}, try again, or {' '}
-        <NavLink
-          className="signup-link"
-          to="/verify"
-          exact
-          role="link"
-          tabIndex={-1}
-        >verify your account.
-        </NavLink>
-      </div>)
+      </div>
+    )
       :
       <div />;
     return (
       <div className="add-post">
-        {failedMess}
+        {submittedMess}
         <form onSubmit={this.handleSubmit} className="add-note-form">
           <textarea
             type="text"
@@ -78,14 +68,6 @@ class SignIn extends React.Component {
             value={this.state.email}
             onChange={this.handleChange}
           />
-          <textarea
-            type="text"
-            id="password-input"
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
           <button
             className="save-button"
             name="signin"
@@ -93,7 +75,7 @@ class SignIn extends React.Component {
             value="SignIn"
             onClick={this.handleSubmit}
           >
-            Sign In
+            Verify
           </button>
         </form>
       </div>
@@ -101,4 +83,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default Verify;

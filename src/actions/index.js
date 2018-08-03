@@ -23,6 +23,7 @@ export const ActionTypes = {
 // const ROOT_URL = 'https://cs52-blog.herokuapp.com/api';
 // For my server
 const ROOT_URL = 'http://localhost:9090/api';
+// const ROOT_URL = 'https://share-ity.herokuapp.com/api';
 const API_KEY = '';
 // const API_KEY = '?key=r_blake';
 
@@ -186,6 +187,22 @@ export function signupUser({ email, password, username }, history) {
       // hit an error -> do something else
       dispatch(authError(`Signin failed: ${error.response.data}`));
       console.log('FAILED IN ACTION signupUser');
+    });
+  };
+}
+
+export function verifyUser(email) {
+  console.log('in verify user ', email);
+  axios.post(`${ROOT_URL}/resend`, { email }).then((res) => {
+    console.log('the response was', res.mess);
+  }).catch((error) => {
+    console.log('Failed in resend post for verification email.', error);
+  });
+  console.log('should have made it to server...');
+  return (dispatch) => {
+    console.log('requesting verification...');
+    axios.post(`${ROOT_URL}/resend`, email).catch((error) => {
+      console.log('Failed in resend post for verification email.');
     });
   };
 }

@@ -23,6 +23,7 @@ const Nav = (props) => {
     return (
       <nav>
         <Logo />
+        <Search />
         <ul className="header">
           <li><NavLink className="navlink" to="/" exact>Home</NavLink></li>
           <li><NavLink className="navlink" to="/posts/new">Add Post</NavLink></li>

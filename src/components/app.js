@@ -13,6 +13,7 @@ import SignUp from '../containers/signUp';
 import EditAPost from '../containers/editpost';
 import Nav from '../components/nav';
 import RequireAuth from '../containers/requireAuth';
+import Verify from './verify';
 // import AddPost from './addpost';
 
 
@@ -67,6 +68,7 @@ const App = () => {
           <Route path="/about" component={About} />
           <Route exact path="/posts/:postID" component={SinglePost} />
           <Route exact path="/posts/:postID/edit" component={RequireAuth(EditAPost)} />
+          <Route path="/verify" component={Verify} />
           {/* <Route exact
             path="/posts/:postID"
             render={props => (
