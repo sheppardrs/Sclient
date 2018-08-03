@@ -22,8 +22,8 @@ export const ActionTypes = {
 // For herokuapp given:
 // const ROOT_URL = 'https://cs52-blog.herokuapp.com/api';
 // For my server
-const ROOT_URL = 'http://localhost:9090/api';
-// const ROOT_URL = 'https://share-ity.herokuapp.com/api';
+// const ROOT_URL = 'http://localhost:9090/api';
+const ROOT_URL = 'https://share-ity.herokuapp.com/api';
 const API_KEY = '';
 // const API_KEY = '?key=r_blake';
 

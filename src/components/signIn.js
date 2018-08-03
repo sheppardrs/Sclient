@@ -70,7 +70,7 @@ class SignIn extends React.Component {
       <div className="add-post">
         {failedMess}
         <form onSubmit={this.handleSubmit} className="add-note-form">
-          <textarea
+          <input
             type="text"
             id="email-input"
             name="email"
@@ -78,8 +78,8 @@ class SignIn extends React.Component {
             value={this.state.email}
             onChange={this.handleChange}
           />
-          <textarea
-            type="text"
+          <input
+            type="password"
             id="password-input"
             name="password"
             placeholder="Password"
