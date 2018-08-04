@@ -14,6 +14,7 @@ import EditAPost from '../containers/editpost';
 import Nav from '../components/nav';
 import RequireAuth from '../containers/requireAuth';
 import Verify from './verify';
+import PasswordResetReq from './password';
 // import AddPost from './addpost';
 
 
@@ -69,6 +70,7 @@ const App = () => {
           <Route exact path="/posts/:postID" component={SinglePost} />
           <Route exact path="/posts/:postID/edit" component={RequireAuth(EditAPost)} />
           <Route path="/verify" component={Verify} />
+          <Route path="/resetpasswordreq" component={PasswordResetReq} />
           {/* <Route exact
             path="/posts/:postID"
             render={props => (

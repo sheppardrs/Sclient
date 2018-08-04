@@ -201,10 +201,20 @@ export function verifyUser(email) {
   console.log('should have made it to server...');
   return (dispatch) => {
     console.log('requesting verification...');
-    axios.post(`${ROOT_URL}/resend`, email).catch((error) => {
-      console.log('Failed in resend post for verification email.');
-    });
+    // axios.post(`${ROOT_URL}/resend`, email).catch((error) => {
+    //   console.log('Failed in resend post for verification email.');
+    // });
   };
+}
+
+export function passwordreqUser(email) {
+  console.log('posting for reset');
+  axios.post(`${ROOT_URL}/resetpasswordreq`, { email }).then((res) => {
+    console.log('successfully request password reset email.');
+  }).catch((err) => {
+    console.log('failed in posting for password reset email.');
+  });
+  console.log('posted for reset');
 }
 
 // deletes token from localstorage
