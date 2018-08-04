@@ -182,7 +182,7 @@ export function signupUser({ email, password, username }, history) {
       // do something with the response.data (some json)
       localStorage.setItem('token', response.data.token);
       history.push('/');
-      dispatch({ type: ActionTypes.AUTH_USER });
+      // dispatch({ type: ActionTypes.AUTH_USER });
     }).catch((error) => {
       // hit an error -> do something else
       dispatch(authError(`Signin failed: ${error.response.data}`));
