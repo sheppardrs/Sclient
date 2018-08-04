@@ -3,7 +3,7 @@
 July 2018
 Started from lab4 of CS52 at Dartmouth College taught by Timothy Pierson so this is built from course notes and assignments as well as stack exchange and [youtube](https://www.youtube.com/watch?v=Td-2D-_7Y2E&index=20&list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b).
 
-## with Regina Yan doing maybe some styling/front end engineering
+## with Regina Yan doing maybe some styling/front end engineering.
 
 # TODO
  * display errors for failures like unauthorized delete or any other error codes received from server
