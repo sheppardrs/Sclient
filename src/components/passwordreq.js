@@ -1,17 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { passwordUser } from '../actions/index';
+import { passwordreqUser } from '../actions/index';
 
 // handles both singin and  sign up for now since both just require email & Password
 // takes props:
 // signinUser should be the action creator signinUser
 // signupUser -> action creator signupUser
-class PasswordReset extends React.Component {
+class PasswordResetReq extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      password: '',
+      email: '',
       submitted: false,
     };
 
@@ -29,30 +29,29 @@ class PasswordReset extends React.Component {
   handleSubmit(e) {
     // console.log('the event target is:', e.target.name, '.');
     // console.log('You submitted:', user, '.');
-    const pass = this.state.password;
-    passwordUser(pass, this.props.match.params[0]);
+    const mail = this.state.email;
+    passwordreqUser(mail);
     // reset local state
     this.setState({
-      password: '',
+      email: '',
       submitted: true,
     });
     e.preventDefault();
   }
 
   render() {
-    console.log('params[0]', this.props.match.params[0]);
     const submittedMess = this.state.submitted ? (
       <div>
-        Your password should be reset.
+        Check your inbox, you should have received an email with a link to  verify your account. The link expires after 10 hours.
         <br />
         <br />
         <NavLink
           className="signin-link"
-          to="/signin"
+          to="/"
           exact
           role="link"
           tabIndex={-1}
-        >Sign In
+        >Home
         </NavLink>
       </div>
     )
@@ -62,12 +61,13 @@ class PasswordReset extends React.Component {
       <div className="add-post">
         {submittedMess}
         <form onSubmit={this.handleSubmit} className="add-note-form">
-            Enter a new password below:
-          <input
-            type="password"
-            name="password"
-            placeholder="New Password"
-            value={this.state.password}
+          Request a password reset email by submitting the email tied to your account below:
+          <textarea
+            type="text"
+            id="email-input"
+            name="email"
+            placeholder="Email"
+            value={this.state.email}
             onChange={this.handleChange}
           />
           <button
@@ -77,7 +77,7 @@ class PasswordReset extends React.Component {
             value="SignIn"
             onClick={this.handleSubmit}
           >
-            Set
+            Reset
           </button>
         </form>
       </div>
@@ -85,4 +85,4 @@ class PasswordReset extends React.Component {
   }
 }
 
-export default PasswordReset;
+export default PasswordResetReq;

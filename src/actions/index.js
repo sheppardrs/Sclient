@@ -208,15 +208,23 @@ export function verifyUser(email) {
 }
 
 export function passwordreqUser(email) {
-  console.log('posting for reset');
+  // console.log('posting for reset');
   axios.post(`${ROOT_URL}/resetpasswordreq`, { email }).then((res) => {
     console.log('successfully request password reset email.');
   }).catch((err) => {
-    console.log('failed in posting for password reset email.');
+    console.log('failed in posting for password reset email.', err);
   });
-  console.log('posted for reset');
 }
 
+export function passwordUser(password, token) {
+  console.log('posting for reset with password');
+  axios.post(`${ROOT_URL}/resetpassword`, { password, token }).then((res) => {
+    console.log('successfully reset password');
+  }).catch((err) => {
+    console.log('failed in reseting password');
+  });
+  console.log('reset completed');
+}
 // deletes token from localstorage
 // and dispatches deauth action
 export function signoutUser(history) {

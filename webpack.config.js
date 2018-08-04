@@ -17,6 +17,11 @@ module.exports = {
   output: { publicPath: '/' },
   entry: ['babel-polyfill', './src'], // this is where our app lives
   devtool: 'source-map', // this enables debugging with source in chrome devtools
+  devServer: {
+    historyApiFallback: {
+      disableDotRule: true,
+    },
+  },
   module: {
     rules: [
       {
