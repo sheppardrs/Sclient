@@ -1,5 +1,5 @@
 $key-color: #55E5AB;
-$highlight-color: #38DABE;
+$highlight-color: #08D8CE;
 $text-color: #4A4A4A;
 $text-color-light: #959595;
 $background: #FAFAFA;
@@ -128,10 +128,21 @@ a {
 }
 
 .header li {
+  padding: 0 0 2pt 0;
   margin: 5pt;
+  margin-right: 15pt;
   list-style: none;
   text-decoration: none;
   text-transform: uppercase;
+  font-weight: 100;
+  transition: all 300ms;
+  transition-timing-function: ease-in-out;
+  border-bottom: 1.5px solid transparent;
+}
+
+
+.header li:hover{
+  border-bottom-color: $text-color;
 }
 
 .navlink {
@@ -139,8 +150,10 @@ a {
 }
 
 .active {
-  padding: 0 0 4pt 0;
-  text-decoration: underline;
+  padding: 0 0 2pt 0;
+  border-bottom: 1.5px solid;
+  border-bottom-color: $text-color;
+  // text-decoration: underline;
   // border-bottom-style: solid;
   // border-bottom-width: thick;
   font-weight: bold;
