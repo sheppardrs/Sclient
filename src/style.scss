@@ -187,7 +187,8 @@ a {
 }
 
 .toggle-selected {
-  font-weight: bold;
+  font-family: "Roboto", slab;
+  font-weight: 400;
   color: $highlight-color;
   font-style: normal;
 }
@@ -197,6 +198,7 @@ a {
 }
 
 .toggle-req-offer button {
+  font-family: "Roboto", slab;
   background: none;
   border: none;
   margin: 0;
@@ -217,20 +219,26 @@ a {
 }
 
 .sort-buttons:first-of-type div {
-  text-decoration: underline;
+  text-transform: uppercase;
+  border-bottom: 1px solid $text-color;
+  padding-bottom: 2pt;
+  //text-decoration: underline;
+
 }
 
 .sort-buttons button {
+  font-family: "Roboto", slab;
   background: none;
   border: none;
   margin: 0;
-  padding: 0;
+  padding-top: 5pt;
   color: $text-color-light;
   font-size: inherit;
   text-align: left;
-  font-weight: lighter;
+  font-weight: 300;
   text-decoration: none;
 }
+
 
 //highlighting current
 #sort-selected {
@@ -368,9 +376,9 @@ i {
 
 //ADD POST
 .add-post {
-  border-top: 3pt solid $text-color;
-  border-bottom: 3pt solid $text-color;
-  border-radius: 10pt;
+  //border-top: 3pt solid $text-color;
+  //border-bottom: 3pt solid $text-color;
+  //border-radius: 10pt;
   margin: 0 7% 0 7%;
   padding: 3% 3% 3% 3%;
   color: $text-color;
@@ -379,6 +387,9 @@ i {
 
 input {
   margin: 2%;
+  background: $background;
+  border: none;
+  border-bottom: 1px solid $text-color;
 }
 
 textarea {
@@ -453,4 +464,11 @@ form {
 .save-button i {
   //font-size: 18pt; 
   //might not need this at all, can do everything in .save-button
+}
+
+// SIGN UP
+.failure-mess{
+  background: white;
+  font-weight: 300;
+  padding: 5pt;
 }

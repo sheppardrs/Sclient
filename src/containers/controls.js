@@ -49,7 +49,7 @@ class Controls extends React.Component {
     console.log('this.props.sortV', this.props.sortV);
     return (
       <div className="sort-buttons">
-        <div>Sort By:</div>
+        <div>Sort By</div>
         <button
           onClick={this.handleClick}
           id={(this.props.sortV === 'newest') ? 'sort-selected' : ''}
