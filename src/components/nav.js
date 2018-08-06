@@ -28,7 +28,7 @@ const Nav = (props) => {
           <li><NavLink className="navlink" to="/" exact>Home</NavLink></li>
           <li><NavLink className="navlink" to="/posts/new">Add Post</NavLink></li>
           <li><NavLink className="navlink" to="/about">About</NavLink></li>
-          <li><button className="signout-button" onClick={(e) => { props.signoutUser(props.history); }}>Sign Out</button></li>
+          <li><NavLink id="signout-link" className="navlink" to="/" onClick={(e) => { props.signoutUser(props.history); }}>Sign Out</NavLink></li>
         </ul>
       </nav>
     );

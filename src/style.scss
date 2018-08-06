@@ -173,14 +173,17 @@ a {
   font-weight: bold;
 }
 
-.signout-button {
-  border: none;
-  color: inherit;
-  padding: 0;
-  background: none;
-  text-transform: inherit;
-  font-size: inherit;
+#signout-link{
+  font-weight: 100;
 }
+// .signout-button {
+//   border: none;
+//   color: inherit;
+//   padding: 0;
+//   background: none;
+//   text-transform: inherit;
+//   font-size: inherit;
+// }
 
 // box with posts and filters
 .posts-filters-box {
@@ -474,7 +477,7 @@ form {
 }
 
 .save-button i {
-  //font-size: 18pt; 
+  //font-size: 18pt;
   //might not need this at all, can do everything in .save-button
 }
 
@@ -494,6 +497,3 @@ form {
   font-weight: 300;
   padding: 5pt;
 }
-
-
-
