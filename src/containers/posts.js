@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 // import Post from '../components/post';
 import Posts from '../components/posts';
-import { fetchPost, deletePost, likePost } from '../actions/index';
+import { fetchPost, deletePost, likePost, favoritePost } from '../actions/index';
 
 // this can be a dumb or smart component -
 // connect works either way
@@ -63,4 +63,6 @@ const mapStateToProps = state => (
 // react-redux glue -- outputs Container that
 // knows state in properties
 // new way to connect with react router 4
-export default withRouter(connect(mapStateToProps, { fetchPost, deletePost, likePost })(Posts));
+export default withRouter(connect(mapStateToProps, {
+  fetchPost, deletePost, likePost, favoritePost,
+})(Posts));

@@ -11,6 +11,7 @@ export const ActionTypes = {
   SEARCH: 'SEARCH',
   SORTV: 'SORTV',
   FILTERV: 'FILTERV',
+  NOTHING: 'NOTHING',
   // will add these as we go
   // UPDATE_POST: 'UPDATE_POST',
   // CREATE_POST: 'CREATE_POST',
@@ -256,6 +257,41 @@ export function filterby(order) {
   };
 }
 
+// favoriting calls to server
+// give post id
+export function favoritePost(id) {
+  // console.log(id);
+  axios.post(`${ROOT_URL}/favorite`, { id }, {
+    headers: { authorization: localStorage.getItem('token') },
+  }).then((res) => {
+    console.log('successfully favorited');
+  }).catch((err) => {
+    console.log('failed in favoriting');
+  });
+  return {
+    type: ActionTypes.NOTHING,
+  };
+}
+
+export function getFavorites() {
+  return (dispatch) => {
+    // get is old, patch is for filtering
+    // axios.get(`${ROOT_URL}/posts${API_KEY}`).then((response) => {
+    axios.get(`${ROOT_URL}/favorite`, {
+      headers: { authorization: localStorage.getItem('token') },
+    }).then((response) => {
+      const posts = response.data;
+      // console.log('posts is: ', posts);
+      dispatch({
+        type: 'FETCH_POSTS',
+        payload: posts,
+      });
+    }).catch((error) => {
+      // hit an error -> do something else
+      console.log('FAILED in fetching favorites');
+    });
+  };
+}
 // export function increment() {
 //   return {
 //     type: ActionTypes.INCREMENT,

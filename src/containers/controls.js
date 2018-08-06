@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 
-import { fetchPosts, sortby, filterby } from '../actions';
+import { fetchPosts, sortby, filterby, getFavorites } from '../actions';
 
 class Controls extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleFavs = this.handleFavs.bind(this);
     // this.state = {
     //   sort: 'newest',
     // };
@@ -45,8 +46,20 @@ class Controls extends React.Component {
     this.props.fetchPosts(select);
   }
 
+  handleFavs() {
+    console.log('getting favorites');
+    this.props.getFavorites();
+  }
+
   render() {
     console.log('this.props.sortV', this.props.sortV);
+    const favorites = this.props.auth ? (
+      <button
+        onClick={this.handleFavs}
+      >Favorites
+      </button>)
+      :
+      <div />;
     return (
       <div className="sort-buttons">
         <div>Sort By</div>
@@ -78,6 +91,7 @@ class Controls extends React.Component {
         >
           Alphabetical
         </button>
+        {favorites}
       </div>
     );
   }
@@ -88,8 +102,11 @@ const mapStateToProps = state => (
     sortV: state.sortV,
     filterV: state.filterV,
     search: state.search,
+    auth: state.auth,
   }
 );
 // react-redux glue -- outputs Container that knows how to call actions
 // new way to connect with react router 4
-export default withRouter(connect(mapStateToProps, { fetchPosts, sortby, filterby })(Controls));
+export default withRouter(connect(mapStateToProps, {
+  fetchPosts, sortby, filterby, getFavorites,
+})(Controls));

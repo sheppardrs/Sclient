@@ -79,6 +79,7 @@ class Posts extends React.Component {
                   onSelect={this.props.fetchPost}
                   onDelete={this.props.deletePost}
                   onLike={this.props.likePost}
+                  onFav={this.props.favoritePost}
                   history={this.props.history}
                 />
               );

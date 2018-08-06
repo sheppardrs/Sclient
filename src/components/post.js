@@ -12,6 +12,7 @@ class Post extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.handleView = this.handleView.bind(this);
+    this.handleFav = this.handleFav.bind(this);
   }
 
   handleEdit(e) {
@@ -26,6 +27,11 @@ class Post extends React.Component {
   handleLike(e) {
     this.props.onLike(this.props.post.id, this.props.history);
     console.log(`Like ${this.props.post.title}`);
+  }
+
+  handleFav(e) {
+    console.log(`Favorite ${this.props.post.id}`);
+    this.props.onFav(this.props.post.id);
   }
 
   handleView(e) {
@@ -88,6 +94,12 @@ class Post extends React.Component {
               role="button"
             />
           </NavLink>
+          <i
+            onClick={this.handleFav}
+            tabIndex={-1}
+            className="fas fa-heart"
+            role="button"
+          />
         </div>
       </div>
     );
