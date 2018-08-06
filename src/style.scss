@@ -6,6 +6,8 @@ $text-color: #4A4A4A;
 $text-color-light: #959595;
 $background: #FAFAFA;
 $item-background: white;
+$shadow-before: #EAEAEA;
+$shadow-after: #DBDBDB;
 $gradient: linear-gradient(to right, $key-color, $highlight-color);
 // uses
 $button-color: $key-color;
@@ -82,7 +84,8 @@ button {
 }
 
 #search-input {
-  height: 20pt;
+  height: 18pt;
+  background: $item-background;
   border-color: $text-color-light;
   border-style: solid;
   border-width: thin;
@@ -90,7 +93,8 @@ button {
   border-radius: 3pt 0 0 3pt;
   width: 120pt;
   margin: 0;
-  padding: 0;
+  padding-right: 50pt;
+  padding-left: 10pt;
 
 }
 
@@ -106,7 +110,15 @@ button {
 
 .search-bar button:last-child{
   border-radius: 0 3pt 3pt 0;
+  background-color: $shadow-before;
+  transition: 200ms;
 }
+
+.search-bar button:last-child:hover{
+  border-radius: 0 3pt 3pt 0;
+  background-color: $shadow-after;
+}
+
 
 
 // The Navbar
@@ -466,9 +478,22 @@ form {
   //might not need this at all, can do everything in .save-button
 }
 
-// SIGN UP
-.failure-mess{
+// SIGN IN
+.signin-link:hover{
+  color: $key-color;
+  transition: 200ms;
+}
+.signup-link:hover{
+  color: $key-color;
+  transition: 200ms;
+}
+
+// POP UPS
+.failure-mess, .notify-mess{
   background: white;
   font-weight: 300;
   padding: 5pt;
 }
+
+
+

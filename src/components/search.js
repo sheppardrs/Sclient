@@ -52,19 +52,19 @@ class Search extends React.Component {
           onChange={this.handleChange}
         />
         <button
-          className="search-button"
-          name="search"
-          onClick={this.handleSubmit}
-        >
-          <i className="fa fa-search" aria-hidden="true" />
-        </button>
-        <button
-          className="search-button"
+          className="cancel-button"
           name="clear"
           value=""
           onClick={this.handleChange}
         >
           <i className="fa fa-times" aria-hidden="true" />
+        </button>
+        <button
+          className="search-button"
+          name="search"
+          onClick={this.handleSubmit}
+        >
+          <i className="fa fa-search" aria-hidden="true" />
         </button>
       </div>
     );

@@ -41,9 +41,9 @@ class Verify extends React.Component {
 
   render() {
     const submittedMess = this.state.submitted ? (
-      <div>
-        Check your inbox, you should have received an email with a link to  verify your account. The link expires after 10 hours.
-        Once you have verified your account {' '}
+      <div className="notify-mess">
+        Check your inbox, you should have received an email with a link to verify your account. The link expires after 10 hours.
+        Once you have verified your account, {' '}
         <NavLink
           className="signin-link"
           to="/signin"
@@ -60,7 +60,7 @@ class Verify extends React.Component {
       <div className="add-post">
         {submittedMess}
         <form onSubmit={this.handleSubmit} className="add-note-form">
-          <textarea
+          <input
             type="text"
             id="email-input"
             name="email"
