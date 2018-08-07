@@ -16,6 +16,7 @@ import RequireAuth from '../containers/requireAuth';
 import Verify from './verify';
 import PasswordResetReq from './passwordreq';
 import PasswordReset from './password';
+import Chat from './chat';
 // import AddPost from './addpost';
 
 
@@ -73,6 +74,7 @@ const App = () => {
           <Route path="/verify" component={Verify} />
           <Route path="/resetpasswordreq" component={PasswordResetReq} />
           <Route exact path="/passwordreset/*" component={PasswordReset} />
+          <Route path="/chat" component={Chat} />
           {/* <Route exact
             path="/posts/:postID"
             render={props => (
