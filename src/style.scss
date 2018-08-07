@@ -501,8 +501,25 @@ form {
 // chat
 .chat {
   margin: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
+.chat-conversations {
+  margin: 0 10% 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-controls {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.chat-startconvo {
+  margin: 0 5% 0 0;
+}
 // style these two at the same time probably
 .message-box-rec {
   display: flex;
