@@ -12,18 +12,34 @@ class Chat extends React.Component {
     this.state = {
       messages: [],
       message: '',
+      to: '',
     };
 
     this.username = localStorage.getItem('username');
     // localStorage.setItem('token', response.data.token);
 
+    // set up socket.io connections
     this.socket = socketIOc(chatserverURL);
+    this.socket.emit('join', this.username);
+
+    // binding functions to this
     this.handleRec = this.handleRec.bind(this);
     this.handleSend = this.handleSend.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleLoad = this.handleLoad.bind(this);
+
     this.socket.on('message', this.handleRec);
+    this.socket.on('messages', this.handleLoad);
   }
 
+  // handle receiving the past messages
+  handleLoad(history) {
+    this.setState({
+      messages: history,
+    });
+  }
+
+  // handle receiving a message
   handleRec(message) {
     this.setState(prevState => ({
       messages: [...prevState.messages, message],
@@ -34,6 +50,7 @@ class Chat extends React.Component {
     const mess = {
       content: this.state.message,
       from: this.username,
+      to: this.state.to,
     };
     console.log('sending message', mess);
     this.socket.emit('message', mess);
@@ -43,14 +60,23 @@ class Chat extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ message: e.target.value });
+    const field = e.target.name;
+    this.setState({ [field]: e.target.value });
     e.preventDefault();
   }
 
   render() {
     return (
       <div className="chat">
-        Check server if it connected!
+        To:
+        <input
+          type="text"
+          name="to"
+          placeholder="Username"
+          value={this.state.to}
+          onChange={this.handleChange}
+          className="message-enter"
+        />
         {this.state.messages.map((message) => {
           // console.log(this.state.request, post.request);
             return (
@@ -75,6 +101,7 @@ class Chat extends React.Component {
           onSubmit={this.handleSend}
           className="message-form"
         >
+          Message:
           <input
             type="text"
             name="message"
@@ -83,6 +110,12 @@ class Chat extends React.Component {
             onChange={this.handleChange}
             className="message-enter"
           />
+          <button
+            type="submit"
+            className="save-button"
+          >
+              Send
+          </button>
         </form>
       </div>
     );
