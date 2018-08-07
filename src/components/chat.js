@@ -33,7 +33,7 @@ class Chat extends React.Component {
   handleSend(e) {
     const mess = {
       content: this.state.message,
-      username: this.username,
+      from: this.username,
     };
     console.log('sending message', mess);
     this.socket.emit('message', mess);
@@ -55,13 +55,13 @@ class Chat extends React.Component {
           // console.log(this.state.request, post.request);
             return (
               <div
-                className={message.username === this.username ? 'message-box-sent' : 'message-box-rec'}
-                key={message}
+                className={message.from === this.username ? 'message-box-sent' : 'message-box-rec'}
+                key={message._id}
               >
                 <div
                   className="message-author"
                 >
-                  {message.username}
+                  {message.from}
                 </div>
                 <div
                   className="message-content-sent"
