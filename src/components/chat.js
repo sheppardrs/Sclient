@@ -14,6 +14,9 @@ class Chat extends React.Component {
       message: '',
     };
 
+    this.username = localStorage.getItem('username');
+    // localStorage.setItem('token', response.data.token);
+
     this.socket = socketIOc(chatserverURL);
     this.handleRec = this.handleRec.bind(this);
     this.handleSend = this.handleSend.bind(this);
@@ -28,8 +31,12 @@ class Chat extends React.Component {
   }
 
   handleSend(e) {
-    console.log('sending message', this.state.message);
-    this.socket.emit('message', this.state.message);
+    const mess = {
+      content: this.state.message,
+      username: this.username,
+    };
+    console.log('sending message', mess);
+    this.socket.emit('message', mess);
     console.log('sent');
     this.setState({ message: '' });
     e.preventDefault();
@@ -48,10 +55,19 @@ class Chat extends React.Component {
           // console.log(this.state.request, post.request);
             return (
               <div
-                className="message-rec"
+                className={message.username === this.username ? 'message-box-sent' : 'message-box-rec'}
                 key={message}
               >
-                {message}
+                <div
+                  className="message-author"
+                >
+                  {message.username}
+                </div>
+                <div
+                  className="message-content-sent"
+                >
+                  {message.content}
+                </div>
               </div>
             );
           })}

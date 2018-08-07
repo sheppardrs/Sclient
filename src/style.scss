@@ -497,3 +497,42 @@ form {
   font-weight: 300;
   padding: 5pt;
 }
+
+// chat
+.chat {
+  margin: 5%;
+}
+
+// style these two at the same time probably
+.message-box-rec {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-bottom: thin solid $border-color;
+  border-left: thin solid $border-color;
+  margin: 0 0 10pt 0;
+}
+
+.message-box-sent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-bottom: thin solid $border-color;
+  border-right: thin solid $border-color;
+  margin: 0 0 10pt 0;
+}
+
+.message-author {
+  margin: 0 0 2pt 10pt;
+  color: $text-color-light;
+}
+
+.message-content {
+  margin: 0 3pt 3pt 5pt;
+}
+
+.message-enter {
+  border-left: thin solid $border-color;
+  padding: 3pt 5pt 3pt 5pt;
+  font-size: inherit;
+}

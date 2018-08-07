@@ -74,7 +74,7 @@ const App = () => {
           <Route path="/verify" component={Verify} />
           <Route path="/resetpasswordreq" component={PasswordResetReq} />
           <Route exact path="/passwordreset/*" component={PasswordReset} />
-          <Route path="/chat" component={Chat} />
+          <Route path="/chat" component={RequireAuth(Chat)} />
           {/* <Route exact
             path="/posts/:postID"
             render={props => (
