@@ -36,10 +36,12 @@ class Chat extends React.Component {
     this.handleConvos = this.handleConvos.bind(this);
     this.selectConvo = this.selectConvo.bind(this);
     this.startConvo = this.startConvo.bind(this);
+    this.newConvo = this.newConvo.bind(this);
 
     this.socket.on('message', this.handleRec);
     this.socket.on('messages', this.handleLoad);
     this.socket.on('convos', this.handleConvos);
+    this.socket.on('newConvo', this.newConvo);
   }
 
   // handle receiving the list of conversations that this user is in
@@ -50,6 +52,10 @@ class Chat extends React.Component {
     });
   }
 
+  newConvo() {
+    console.log('REC newConvo');
+    this.socket.emit('join', this.username);
+  }
   // select a conversation
   // send a request for the messages of that conversation
   selectConvo(conversation, e) {
@@ -93,6 +99,7 @@ class Chat extends React.Component {
 
   startConvo(e) {
     this.socket.emit('startconvo', this.state.new);
+    e.preventDefault();
   }
 
   handleChange(e) {
