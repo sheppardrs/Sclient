@@ -6,8 +6,8 @@ import socketIOc from 'socket.io-client';
 
 // this component is based on the hackermoon article "A simple messaging app with react native and socket.io"
 // https://hackernoon.com/a-simple-messaging-app-with-react-native-and-socket-io-e1cae3df7bda
-const chatserverURL = 'http://localhost:3000'; // for local testing
-// const chatserverURL = 'https://share-ity.herokuapp.com:3000'; // for heroku
+// const chatserverURL = 'http://localhost:3000'; // for local testing
+const chatserverURL = 'https://share-ity.herokuapp.com/'; // for heroku
 
 
 class Chat extends React.Component {
