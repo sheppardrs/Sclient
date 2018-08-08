@@ -17,12 +17,8 @@ import Verify from './verify';
 import PasswordResetReq from './passwordreq';
 import PasswordReset from './password';
 import Chat from './chat';
+import About from './account';
 // import AddPost from './addpost';
-
-
-const About = (props) => {
-  return <div>All there is to know about me</div>;
-};
 
 
 // For UI Design hardcoded posts

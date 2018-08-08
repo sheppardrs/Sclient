@@ -118,7 +118,7 @@ class Chat extends React.Component {
             // console.log(this.state.request, post.request);
               return (
                 <button
-                  className="chat-conversation"
+                  className={conversation._id === this.state.to._id ? 'chat-conversation-sel' : 'chat-conversation'}
                   key={conversation._id}
                 //  value={conversation}
                   onClick={e => this.selectConvo(conversation, e)}
@@ -158,7 +158,8 @@ class Chat extends React.Component {
           </div>
         </div>
         <div className="chat-messages">
-          {this.state.messages.map((message) => {
+          <div>
+            {this.state.messages.map((message) => {
           // console.log(this.state.request, post.request);
             return (
               <div
@@ -178,26 +179,27 @@ class Chat extends React.Component {
               </div>
             );
           })}
-          <form
-            onSubmit={this.handleSend}
-            className="message-form"
-          >
-          Message:
-            <input
-              type="text"
-              name="message"
-              placeholder="Say something?"
-              value={this.state.message}
-              onChange={this.handleChange}
-              className="message-enter"
-            />
-            <button
-              type="submit"
-              className="save-button"
+            <form
+              onSubmit={this.handleSend}
+              className="message-form"
             >
+          Message:
+              <input
+                type="text"
+                name="message"
+                placeholder="Say something?"
+                value={this.state.message}
+                onChange={this.handleChange}
+                className="message-enter"
+              />
+              <button
+                type="submit"
+                className="save-button"
+              >
               Send
-            </button>
-          </form>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     );
