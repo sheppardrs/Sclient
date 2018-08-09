@@ -18,6 +18,7 @@ import PasswordResetReq from './passwordreq';
 import PasswordReset from './password';
 import Chat from './chat';
 import About from './account';
+import Landing from './landing';
 // import AddPost from './addpost';
 
 
@@ -60,6 +61,7 @@ const App = () => {
       <div>
         <Nav />
         <Switch>
+          <Route path="/landing" component={Landing} />
           <Route exact path="/" component={Welcome} />
           <Route path="/signin" component={SignInUser} />
           <Route path="/signup" component={SignUp} />
@@ -77,7 +79,7 @@ const App = () => {
               <FullPost post={post1} {...props} />
           )}
         /> */}
-          <Route render={() => (<div>Post not found.</div>)} />
+          <Route render={() => (<div>Page not found.</div>)} />
         </Switch>
       </div>
     </Router>
