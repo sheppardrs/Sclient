@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../img/sharitylogo.png';
 
 const Landing = (props) => {
   return (
@@ -10,7 +11,7 @@ const Landing = (props) => {
         </ul>
       </nav>
       <div className="landing-title">
-        <div className="logo-box" />
+        <div className="logo-box" ><img src={logo} alt="logo" /></div>
         <div className="slogan-box">
           <p className="slogan">Building community through shared items and stories</p>
         </div>
