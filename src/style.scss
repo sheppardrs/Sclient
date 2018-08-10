@@ -85,6 +85,7 @@ button {
 .logo-box{
   width: 60%;
   margin: 0 auto;
+  text-align: center;
 }
 .slogan-box{
   width: 50%;
@@ -99,6 +100,7 @@ button {
 .landing-title{
   background-image: $gradient;
   color: white;
+  width: 100%;
 }
 .landing-footer{
   background-image: $gradient; 
@@ -137,7 +139,10 @@ button {
   float: right;
 }
 .landing-padding{
-  padding-bottom: 40px;
+  padding-bottom: 50px;
+}
+.landing-padding-large{
+  padding-bottom: 100px;
 }
 .button-box{
   display: flex;
