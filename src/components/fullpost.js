@@ -52,7 +52,7 @@ class FullPost extends React.Component {
             <i
               onClick={this.handleLike}
               tabIndex={-1}
-              className="fas fa-heart"
+              className="fas fa-arrow-up"
               role="button"
             > {this.props.post.likes}
             </i>
@@ -63,7 +63,7 @@ class FullPost extends React.Component {
             <i
               onClick={this.handleLike}
               tabIndex={-1}
-              className="fas fa-heart"
+              className="fas fa-arrow-up"
               role="button"
             > {this.props.post.likes}
             </i>
@@ -73,13 +73,21 @@ class FullPost extends React.Component {
       editbutton = <div>loading...</div>;
     }
     return (
-      <div className="full-post">
-        <div className="full-post-header">
-          <img src={this.props.post.cover_url} alt="cover for post" />
-          <h4>{this.props.post.title}</h4>
-          <div>
-            {editbutton}
-            {/* old buttons <i
+      <div>
+        <i
+          id="back-button"
+          onClick={() => this.props.history.goBack()}
+          tabIndex={-1}
+          className="fas fa-arrow-left"
+          role="button"
+        />
+        <div className="full-post">
+          <div className="full-post-header">
+            <img src={this.props.post.cover_url} alt="cover for post" />
+            <h4>{this.props.post.title}</h4>
+            <div>
+              {editbutton}
+              {/* old buttons <i
               onClick={this.handleDelete}
               tabIndex={-1}
               className="fas fa-trash"
@@ -106,20 +114,21 @@ class FullPost extends React.Component {
               role="button"
             > {this.props.post.likes}
           </i> */}
+            </div>
           </div>
-        </div>
-        {/* <p>{this.props.post.text}</p> */}
-        <div
-          className="full-post-body"
-          dangerouslySetInnerHTML={{
+          {/* <p>{this.props.post.text}</p> */}
+          <div
+            className="full-post-body"
+            dangerouslySetInnerHTML={{
               __html: marked(this.props.post.content || ''),
             }}
-        />
-        <div
-          className="full-post-author"
-        >
+          />
+          <div
+            className="full-post-author"
+          >
           username:
-          { this.props.post.author ? ` ${this.props.post.author.username}` : 'loading' }
+            { this.props.post.author ? ` ${this.props.post.author.username}` : 'loading' }
+          </div>
         </div>
       </div>
     );
