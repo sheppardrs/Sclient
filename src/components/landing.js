@@ -10,16 +10,15 @@ const Landing = (props) => {
         </ul>
       </nav>
       <div className="landing-title">
-        <div className="logo-box">
-        </div>
+        <div className="logo-box" />
         <div className="slogan-box">
-        <p className="slogan">Building community through shared items and stories</p>
+          <p className="slogan">Building community through shared items and stories</p>
         </div>
-        <div className="landing-padding"></div>
+        <div className="landing-padding" />
         <div className="button-box">
           <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button>
         </div>
-        <div className="landing-padding"></div>
+        <div className="landing-padding" />
       </div>
       <div className="landing-section-mission">
         <div className="landing-content">
@@ -40,18 +39,18 @@ const Landing = (props) => {
         <div className="landing-content">
           <h1>How It Works</h1>
           <div className="landing-triplet-box">
-          <div className="landing-triplet">
-            <img id="howitworks-one" alt="first step is post" />
-            <p>Create a post requesting or giving an item along with your story.</p>
-          </div>
-          <div className="landing-triplet">
-            <img id="howitworks-one" alt="second step is to find" />
-            <p>A fellow users reads your story and starts a conversation.</p>
-          </div>
-          <div className="landing-triplet-last">
-            <img id="howitworks-one" alt="third step is to share an item and find a connection" />
-            <p>You share an item and make a friend along the way!</p>
-          </div>
+            <div className="landing-triplet">
+              <img id="howitworks-one" alt="first step is post" />
+              <p>Create a post requesting or giving an item along with your story.</p>
+            </div>
+            <div className="landing-triplet">
+              <img id="howitworks-one" alt="second step is to find" />
+              <p>A fellow users reads your story and starts a conversation.</p>
+            </div>
+            <div className="landing-triplet-last">
+              <img id="howitworks-one" alt="third step is to share an item and find a connection" />
+              <p>You share an item and make a friend along the way!</p>
+            </div>
           </div>
         </div>
       </div>
