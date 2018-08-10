@@ -1,8 +1,24 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { withRouter, NavLink } from 'react-router-dom';
 import logo from '../img/sharitylogo.png';
+import About from './account';
 
 const Landing = (props) => {
+  let footer;
+  if (props.auth.authenticated) {
+    footer = <About />;
+  } else {
+    footer = (
+      <div className="landing-footer">
+        <div className="landing-content">
+          <h1>All {'that\'s'} missing is you</h1>
+          <div className="button-box">
+            <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button>
+          </div>
+        </div>
+      </div>);
+  }
   return (
     <div className="landing">
       {/* <nav>
@@ -56,16 +72,26 @@ const Landing = (props) => {
           </div>
         </div>
       </div>
-      <div className="landing-footer">
+      {/* <div className="landing-footer">
         <div className="landing-content">
           <h1>All {'that\'s'} missing is you</h1>
           <div className="button-box">
             <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button>
           </div>
         </div>
-      </div>
+      </div> */}
+      {footer}
     </div>
   );
 };
 
-export default Landing;
+
+const mapStateToProps = state => (
+  {
+    auth: state.auth,
+  }
+);
+
+
+export default withRouter(connect(mapStateToProps, null)(Landing));
+// export default Landing;

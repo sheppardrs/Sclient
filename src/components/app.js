@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
-import Posts from '../containers/posts';
-import Controls from '../containers/controls';
 
 // UI Components
 // import Post from './post';
@@ -17,8 +15,11 @@ import Verify from './verify';
 import PasswordResetReq from './passwordreq';
 import PasswordReset from './password';
 import Chat from './chat';
-import About from './account';
+// import About from './account';
 import Landing from './landing';
+// import Posts from '../containers/posts';
+// import Controls from '../containers/controls';
+import Welcome from './welcome';
 // import AddPost from './addpost';
 
 
@@ -43,17 +44,17 @@ import Landing from './landing';
 // };
 
 
-const Welcome = (props) => {
-  return (
-    <div className="posts-page">
-      <div className="posts-filters-box">
-        <Controls />
-        <Posts />
-        {/* <Posts posts={posts} /> */}
-      </div>
-    </div>
-  );
-};
+// const Welcome = (props) => {
+//   return (
+//     <div className="posts-page">
+//       <div className="posts-filters-box">
+//         <Controls />
+//         <Posts />
+//         {/* <Posts posts={posts} /> */}
+//       </div>
+//     </div>
+//   );
+// };
 
 const PostSignUp = (props) => {
   return (
@@ -74,11 +75,12 @@ const App = () => {
         <Switch>
           <Route path="/landing" component={Landing} />
           <Route exact path="/" component={Welcome} />
+          <Route exact path="/posts" component={Welcome} />
           <Route path="/signin" component={SignInUser} />
           <Route path="/signup" component={SignUp} />
           <Route path="/signupsuccess" component={PostSignUp} />
           <Route path="/posts/new" component={RequireAuth(AddAPost)} />
-          <Route path="/about" component={About} />
+          <Route path="/about" component={Landing} />
           <Route exact path="/posts/:postID" component={SinglePost} />
           <Route exact path="/posts/:postID/edit" component={RequireAuth(EditAPost)} />
           <Route path="/verify" component={Verify} />
