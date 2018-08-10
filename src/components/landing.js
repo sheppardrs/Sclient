@@ -5,14 +5,14 @@ import logo from '../img/sharitylogo-trollshephahahello.png';
 const Landing = (props) => {
   return (
     <div className="landing">
-      <nav>
+      {/* <nav>
         <ul className="header">
           <li><NavLink className="navlink" to="/signin">Sign In</NavLink></li>
         </ul>
-      </nav>
+      </nav> */}
       <div className="landing-title">
         <div className="landing-padding" />
-        <div className="logo-box" ><img src={logo} alt="logo" style={{width: 420, height: 140}}/></div>
+        <div className="logo-box" ><img src={logo} alt="logo" style={{ width: 420, height: 140 }} /></div>
         <div className="slogan-box">
           <p className="slogan">Building community through shared items and stories</p>
         </div>
