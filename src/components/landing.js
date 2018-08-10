@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../img/sharitylogo-trollshephahahello.png';
+import logo from '../img/sharitylogo.png';
 
 const Landing = (props) => {
   return (
