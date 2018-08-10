@@ -182,7 +182,7 @@ export function signupUser({ email, password, username }, history) {
     axios.post(`${ROOT_URL}/signup`, { email, password, username }).then((response) => {
       // do something with the response.data (some json)
       localStorage.setItem('token', response.data.token);
-      history.push('/');
+      history.push('/notify');
       // dispatch({ type: ActionTypes.AUTH_USER });
     }).catch((error) => {
       // hit an error -> do something else

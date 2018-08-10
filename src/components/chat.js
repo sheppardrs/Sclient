@@ -9,6 +9,15 @@ import socketIOc from 'socket.io-client';
 // const chatserverURL = 'http://localhost:3000'; // for local testing
 const chatserverURL = 'https://share-ity.herokuapp.com/'; // for heroku
 
+// structure from stack overflow, heavily modified
+// https://stackoverflow.com/questions/10599148/how-do-i-get-the-current-time-only-in-javascript
+function timeHrsMin(dateString) {
+  const date = new Date(dateString);
+  let amPm;
+  const h = date.getHours() > 12 ? (amPm = 'pm', date.getHours() - 12) : (amPm = 'am', date.getHours());
+  const m = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+  return (`${h}:${m} ${amPm}`);
+}
 
 class Chat extends React.Component {
   constructor(props) {
@@ -167,10 +176,13 @@ class Chat extends React.Component {
                 className={message.from === this.username ? 'message-box-sent' : 'message-box-rec'}
                 key={message._id}
               >
-                <div
-                  className="message-author"
-                >
-                  {message.from}
+                <div className="message-header">
+                  <div className="message-author">
+                    {message.from}
+                  </div>
+                  <div id="message-time" className="time">
+                    {timeHrsMin(message.createdAt)}
+                  </div>
                 </div>
                 <div
                   className="message-content-sent"

@@ -647,9 +647,24 @@ form {
   margin: 0 0 10pt 0;
 }
 
+.message-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .message-author {
   margin: 0 0 2pt 10pt;
   color: $text-color-light;
+}
+
+.message-header #message-time {
+  margin: 0 5pt 0 0;
+  display: none;
+}
+
+.message-header:hover #message-time {
+  display: inline;
 }
 
 .message-content {

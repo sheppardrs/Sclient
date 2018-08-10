@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
 import Posts from '../containers/posts';
 import Controls from '../containers/controls';
 
@@ -55,6 +55,17 @@ const Welcome = (props) => {
   );
 };
 
+const PostSignUp = (props) => {
+  return (
+    <div className="full-post">
+      <h1>Sign Up succeeded.</h1>
+      Check your email for a verification email that is the last step before posting!
+      <br /><NavLink className="navlink" to="/">Visit the homepage to begin sharing.</NavLink>
+    </div>
+  );
+};
+
+
 const App = () => {
   return (
     <Router>
@@ -65,6 +76,7 @@ const App = () => {
           <Route exact path="/" component={Welcome} />
           <Route path="/signin" component={SignInUser} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/signupsuccess" component={PostSignUp} />
           <Route path="/posts/new" component={RequireAuth(AddAPost)} />
           <Route path="/about" component={About} />
           <Route exact path="/posts/:postID" component={SinglePost} />
