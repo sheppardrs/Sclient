@@ -5,10 +5,12 @@ import logo from '../img/sharitylogo.png';
 import About from './account';
 
 const Landing = (props) => {
-  let footer;
+  let footer, signInUp;
+  // if signed in hide signup and show account settings
   if (props.auth.authenticated) {
     footer = <About />;
-  } else {
+    signInUp = <div />;
+  } else { // else show sign ups
     footer = (
       <div className="landing-footer">
         <div className="landing-content">
@@ -18,6 +20,9 @@ const Landing = (props) => {
           </div>
         </div>
       </div>);
+    signInUp = (
+      <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button>
+    );
   }
   return (
     <div className="landing">
@@ -34,7 +39,8 @@ const Landing = (props) => {
         </div>
         <div className="landing-padding" />
         <div className="button-box">
-          <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button>
+          {/* <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button> */}
+          {signInUp}
         </div>
         <div className="landing-padding-large" />
       </div>
