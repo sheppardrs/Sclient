@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../img/sharitylogo-trollshephahahello.png';
+import process1 from '../img/process-07.png';
+import process2 from '../img/process-08.png';
+import process3 from '../img/process-09.png';
 
 const Landing = (props) => {
   return (
@@ -42,15 +45,15 @@ const Landing = (props) => {
           <h1>How It Works</h1>
           <div className="landing-triplet-box">
             <div className="landing-triplet">
-              <img id="howitworks-one" alt="first step is post" />
+              <img id="howitworks-one" alt="first step is post" src={process1} style={{width: 150, height: 150}}/>
               <p>Create a post requesting or giving an item along with your story.</p>
             </div>
             <div className="landing-triplet">
-              <img id="howitworks-one" alt="second step is to find" />
+              <img id="howitworks-one" alt="second step is to find" src={process2} style={{width: 150, height: 150}}/>
               <p>A fellow users reads your story and starts a conversation.</p>
             </div>
             <div className="landing-triplet-last">
-              <img id="howitworks-one" alt="third step is to share an item and find a connection" />
+              <img id="howitworks-one" alt="third step is to share an item and find a connection" src={process3} style={{width: 150, height: 150}}/>
               <p>You share an item and make a friend along the way!</p>
             </div>
           </div>
