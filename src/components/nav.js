@@ -4,16 +4,13 @@ import { withRouter, NavLink } from 'react-router-dom';
 import { signoutUser } from '../actions/index';
 // components
 import Search from '../containers/search';
+import logo from '../img/sharitylogo.png';
 
 
 function Logo() {
   return (
     <div className="logo">
-      <i id="logo_bird" className="fas fa-hand-holding-heart" />
-      <div className="logo-text">
-        <p className="logo-life">Sharity</p>
-        <p className="logo-slogan">Give More</p>
-      </div>
+    <img src={logo} alt="logo" style={{ width: 84, height: 28 }} />
     </div>
   );
 }
