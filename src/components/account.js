@@ -3,10 +3,15 @@ import { NavLink } from 'react-router-dom';
 
 const About = (props) => {
   return (
-    <div className="full-post">
-      <h1>Account</h1>
-      <NavLink to="/resetpasswordreq">Reset password.</NavLink>
-      <NavLink to="/verify">Verify your account.</NavLink>
+    <div className="landing-footer">
+      <div className="landing-content">
+        <h1>Account Help</h1>
+        <div className="button-box">
+          <button className="save-button-white">  <NavLink className="navlink" to="/resetpasswordreq">Reset password</NavLink></button>
+          <br /><br />
+          <button className="save-button-white">  <NavLink className="navlink" to="/verify">Verify your account</NavLink></button>
+        </div>
+      </div>
     </div>
   );
 };

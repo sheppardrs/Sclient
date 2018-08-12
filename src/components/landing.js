@@ -1,27 +1,46 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import logo from '../img/sharitylogo-trollshephahahello.png';
-import process1 from '../img/process-07.png';
-import process2 from '../img/process-08.png';
-import process3 from '../img/process-09.png';
+import { connect } from 'react-redux';
+import { withRouter, NavLink } from 'react-router-dom';
+import logo from '../img/sharitylogo.png';
+import About from './account';
 
 const Landing = (props) => {
+  let footer, signInUp;
+  // if signed in hide signup and show account settings
+  if (props.auth.authenticated) {
+    footer = <About />;
+    signInUp = <div />;
+  } else { // else show sign ups
+    footer = (
+      <div className="landing-footer">
+        <div className="landing-content">
+          <h1>All {'that\'s'} missing is you</h1>
+          <div className="button-box">
+            <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button>
+          </div>
+        </div>
+      </div>);
+    signInUp = (
+      <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button>
+    );
+  }
   return (
     <div className="landing">
-      <nav>
+      {/* <nav>
         <ul className="header">
           <li><NavLink className="navlink" to="/signin">Sign In</NavLink></li>
         </ul>
-      </nav>
+      </nav> */}
       <div className="landing-title">
         <div className="landing-padding" />
-        <div className="logo-box" ><img src={logo} alt="logo" style={{width: 420, height: 140}}/></div>
+        <div className="logo-box" ><img src={logo} alt="logo" style={{ width: 420, height: 140 }} /></div>
         <div className="slogan-box">
           <p className="slogan">Building community through shared items and stories</p>
         </div>
         <div className="landing-padding" />
         <div className="button-box">
-          <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button>
+          {/* <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button> */}
+          {signInUp}
         </div>
         <div className="landing-padding-large" />
       </div>
@@ -45,30 +64,40 @@ const Landing = (props) => {
           <h1>How It Works</h1>
           <div className="landing-triplet-box">
             <div className="landing-triplet">
-              <img id="howitworks-one" alt="first step is post" src={process1} style={{width: 150, height: 150}}/>
+              <img id="howitworks-one" alt="first step is post" />
               <p>Create a post requesting or giving an item along with your story.</p>
             </div>
             <div className="landing-triplet">
-              <img id="howitworks-one" alt="second step is to find" src={process2} style={{width: 150, height: 150}}/>
+              <img id="howitworks-one" alt="second step is to find" />
               <p>A fellow users reads your story and starts a conversation.</p>
             </div>
             <div className="landing-triplet-last">
-              <img id="howitworks-one" alt="third step is to share an item and find a connection" src={process3} style={{width: 150, height: 150}}/>
+              <img id="howitworks-one" alt="third step is to share an item and find a connection" />
               <p>You share an item and make a friend along the way!</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="landing-footer">
+      {/* <div className="landing-footer">
         <div className="landing-content">
           <h1>All {'that\'s'} missing is you</h1>
           <div className="button-box">
             <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button>
           </div>
         </div>
-      </div>
+      </div> */}
+      {footer}
     </div>
   );
 };
 
-export default Landing;
+
+const mapStateToProps = state => (
+  {
+    auth: state.auth,
+  }
+);
+
+
+export default withRouter(connect(mapStateToProps, null)(Landing));
+// export default Landing;
