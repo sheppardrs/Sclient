@@ -67,6 +67,12 @@ class FullPost extends React.Component {
               role="button"
             > {this.props.post.likes}
             </i>
+            <i
+              // onClick={this.startConvo}
+              tabIndex={-1}
+              className="fas fa-comments"
+              role="button"
+            />
           </div>);
       }
     } else {

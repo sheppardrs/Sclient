@@ -1,6 +1,8 @@
 import React from 'react';
 import socketIOc from 'socket.io-client';
-
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { updateSocket } from '../actions';
 // this should probably be decomposed into a few different components
 
 
@@ -37,6 +39,7 @@ class Chat extends React.Component {
     // set up socket.io connections
     this.socket = socketIOc(chatserverURL);
     this.socket.emit('join', this.username);
+    this.props.updateSocket(this.socket);
 
     // binding functions to this
     this.handleRec = this.handleRec.bind(this);
@@ -53,6 +56,7 @@ class Chat extends React.Component {
     this.socket.on('convos', this.handleConvos);
     this.socket.on('newConvo', this.newConvo);
   }
+
 
   // handle receiving the list of conversations that this user is in
   handleConvos(convos) {
@@ -220,4 +224,5 @@ class Chat extends React.Component {
 }
 
 
-export default Chat;
+// export default Chat;
+export default withRouter(connect(null, { updateSocket })(Chat));

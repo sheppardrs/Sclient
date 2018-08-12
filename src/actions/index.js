@@ -12,6 +12,7 @@ export const ActionTypes = {
   SORTV: 'SORTV',
   FILTERV: 'FILTERV',
   NOTHING: 'NOTHING',
+  SOCKET: 'SOCKET',
   // will add these as we go
   // UPDATE_POST: 'UPDATE_POST',
   // CREATE_POST: 'CREATE_POST',
@@ -31,7 +32,7 @@ const API_KEY = '';
 
 // get all the posts
 export function fetchPosts(select) {
-  // axios get
+  // axios
   return (dispatch) => {
     // get is old, patch is for filtering
     // axios.get(`${ROOT_URL}/posts${API_KEY}`).then((response) => {
@@ -292,6 +293,19 @@ export function getFavorites() {
     });
   };
 }
+
+
+// Socket.io
+export function updateSocket(socket) {
+  console.log('update socket action');
+  return (dispatch) => {
+    dispatch({
+      type: 'SOCKET',
+      payload: socket,
+    });
+  };
+}
+
 // export function increment() {
 //   return {
 //     type: ActionTypes.INCREMENT,
