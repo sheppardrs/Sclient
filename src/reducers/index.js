@@ -5,7 +5,7 @@ import authReducer from './auth-reducer';
 import searchReducer from './search-reducer';
 import sortbyReducer from './sortby-reducer';
 import filterbyReducer from './filterby-reducer';
-import socketReducer from './socket-reducer';
+import startChatReducer from './socket-reducer';
 
 const rootReducer = combineReducers({
   all: postsReducer,
@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   search: searchReducer,
   sortV: sortbyReducer,
   filterV: filterbyReducer,
-  socket: socketReducer,
+  startChat: startChatReducer,
 });
 
 export default rootReducer;

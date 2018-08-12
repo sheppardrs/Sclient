@@ -5,10 +5,10 @@ import { ActionTypes } from '../actions';
 // const post1 = { id: 1, title: 'Sharity', text: 'Give Efficiently, Know Your Impact, Find Your Friend.' };
 
 
-const socketReducer = (state = { socket: null }, action) => {
+const startChatReducer = (state = { startChat: null }, action) => {
   switch (action.type) {
     case ActionTypes.SOCKET:
-      return { socket: action.payload };
+      return { startChat: action.payload };
     // case ActionTypes.:
     //   return { authenticated: false };
     default:
@@ -16,4 +16,4 @@ const socketReducer = (state = { socket: null }, action) => {
   }
 };
 
-export default socketReducer;
+export default startChatReducer;
