@@ -39,7 +39,7 @@ class Chat extends React.Component {
     // set up socket.io connections
     this.socket = socketIOc(chatserverURL);
     this.socket.emit('join', this.username);
-    this.props.updateSocket(this.socket);
+    this.props.updateSocket(this.socket.emit);
 
     // binding functions to this
     this.handleRec = this.handleRec.bind(this);

@@ -11,6 +11,15 @@ class FullPost extends React.Component {
 
     this.handleDelete = this.handleDelete.bind(this);
     this.handleLike = this.handleLike.bind(this);
+    this.startConvo = this.startConvo.bind(this);
+  }
+
+  startConvo(e) {
+    console.log(this.props.socket);
+    if (this.props.socket) {
+      this.props.socket('startconvo', this.props.post.author.username);
+    }
+    e.preventDefault();
   }
 
   handleDelete(e) {
@@ -68,7 +77,7 @@ class FullPost extends React.Component {
             > {this.props.post.likes}
             </i>
             <i
-              // onClick={this.startConvo}
+              onClick={this.startConvo}
               tabIndex={-1}
               className="fas fa-comments"
               role="button"

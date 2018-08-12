@@ -24,6 +24,7 @@ class SinglePost extends React.Component {
       return (
         <FullPost
           post={this.props.post}
+          socket={this.props.socket}
           onSelect={this.props.fetchPost}
           onDelete={this.props.deletePost}
           onLike={this.props.likePost}
@@ -53,6 +54,7 @@ class SinglePost extends React.Component {
 const mapStateToProps = state => (
   {
     post: state.post,
+    socket: state.socket,
   }
 );
 
