@@ -7,10 +7,12 @@ import { ActionTypes } from '../actions';
 
 const startChatReducer = (state = { startChat: null }, action) => {
   switch (action.type) {
-    case ActionTypes.SOCKET:
+    case ActionTypes.STARTCHAT:
       return { startChat: action.payload };
     // case ActionTypes.:
     //   return { authenticated: false };
+    case ActionType.CLEARCHAT:
+      return { startChat: null };
     default:
       return state;
   }

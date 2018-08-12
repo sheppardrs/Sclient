@@ -15,9 +15,8 @@ class FullPost extends React.Component {
   }
 
   startConvo(e) {
-    console.log(this.props.socket);
-    if (this.props.socket) {
-      this.props.socket('startconvo', this.props.post.author.username);
+    if (this.props.startChat) {
+      this.props.sartChat(this.props.post.author.username, this.props.history);
     }
     e.preventDefault();
   }

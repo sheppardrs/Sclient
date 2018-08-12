@@ -2,17 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FullPost from '../components/fullpost';
-import { fetchPost, deletePost, likePost } from '../actions/index';
+import { fetchPost, deletePost, likePost, startChat } from '../actions/index';
 
-// this can be a dumb or smart component -
-// connect works either way
-// const Counter = (props) => {
-//   return (
-//     <div>
-//       Current Count: {props.count}
-//     </div>
-//   );
-// };
+// this is over complicated and should just use mapStatetoProps
+
 
 class SinglePost extends React.Component {
   componentWillMount() {
@@ -24,7 +17,7 @@ class SinglePost extends React.Component {
       return (
         <FullPost
           post={this.props.post}
-          socket={this.props.socket}
+          startChat={this.props.startChat}
           onSelect={this.props.fetchPost}
           onDelete={this.props.deletePost}
           onLike={this.props.likePost}
@@ -54,11 +47,12 @@ class SinglePost extends React.Component {
 const mapStateToProps = state => (
   {
     post: state.post,
-    socket: state.socket,
   }
 );
 
 // react-redux glue -- outputs Container that
 // knows state in properties
 // new way to connect with react router 4
-export default withRouter(connect(mapStateToProps, { fetchPost, deletePost, likePost })(SinglePost));
+export default withRouter(connect(mapStateToProps, {
+  startChat, fetchPost, deletePost, likePost,
+})(SinglePost));

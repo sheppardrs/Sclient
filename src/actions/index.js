@@ -12,7 +12,8 @@ export const ActionTypes = {
   SORTV: 'SORTV',
   FILTERV: 'FILTERV',
   NOTHING: 'NOTHING',
-  SOCKET: 'SOCKET',
+  STARTCHAT: 'STARTCHAT',
+  CLEARCHAT: 'CLEARCHAT',
   // will add these as we go
   // UPDATE_POST: 'UPDATE_POST',
   // CREATE_POST: 'CREATE_POST',
@@ -296,12 +297,20 @@ export function getFavorites() {
 
 
 // Socket.io
-export function updateSocket(socket) {
-  console.log('update socket action');
+export function startChat(username, history) {
   return (dispatch) => {
+    history.push('/chat');
     dispatch({
       type: 'SOCKET',
-      payload: socket,
+      payload: username,
+    });
+  };
+}
+
+export function clearChat() {
+  return (dispatch) => {
+    dispatch({
+      type: ActionTypes.CLEARCHAT,
     });
   };
 }

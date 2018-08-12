@@ -5,7 +5,7 @@ import authReducer from './auth-reducer';
 import searchReducer from './search-reducer';
 import sortbyReducer from './sortby-reducer';
 import filterbyReducer from './filterby-reducer';
-import startChatReducer from './socket-reducer';
+import startChatReducer from './startChat-reducer';
 
 const rootReducer = combineReducers({
   all: postsReducer,
