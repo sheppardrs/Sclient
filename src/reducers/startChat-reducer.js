@@ -9,9 +9,7 @@ const startChatReducer = (state = { startChat: null }, action) => {
   switch (action.type) {
     case ActionTypes.STARTCHAT:
       return { startChat: action.payload };
-    // case ActionTypes.:
-    //   return { authenticated: false };
-    case ActionType.CLEARCHAT:
+    case ActionTypes.CLEARCHAT:
       return { startChat: null };
     default:
       return state;

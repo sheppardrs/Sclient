@@ -2,7 +2,7 @@ import React from 'react';
 import socketIOc from 'socket.io-client';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { updateSocket } from '../actions';
+import { clearChat } from '../actions';
 // this should probably be decomposed into a few different components
 
 
@@ -29,7 +29,7 @@ class Chat extends React.Component {
       messages: [],
       conversations: [],
       message: '',
-      new: '', // username for new conversation
+      new: this.props.startChat, // username for new conversation
       to: '', // should be conversation
     };
 
@@ -39,7 +39,6 @@ class Chat extends React.Component {
     // set up socket.io connections
     this.socket = socketIOc(chatserverURL);
     this.socket.emit('join', this.username);
-    this.props.updateSocket(this.socket.emit);
 
     // binding functions to this
     this.handleRec = this.handleRec.bind(this);
@@ -50,11 +49,19 @@ class Chat extends React.Component {
     this.selectConvo = this.selectConvo.bind(this);
     this.startConvo = this.startConvo.bind(this);
     this.newConvo = this.newConvo.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
 
     this.socket.on('message', this.handleRec);
     this.socket.on('messages', this.handleLoad);
     this.socket.on('convos', this.handleConvos);
     this.socket.on('newConvo', this.newConvo);
+  }
+
+  componentDidMount() {
+    if (this.props.startChat) {
+      // this.setState({ new: this.props.startChat });
+      this.props.clearChat();
+    }
   }
 
 
@@ -223,6 +230,12 @@ class Chat extends React.Component {
   }
 }
 
+const mapStateToProps = state => (
+  {
+    startChat: state.startChat,
+  }
+);
+
 
 // export default Chat;
-export default withRouter(connect(null, { updateSocket })(Chat));
+export default withRouter(connect(mapStateToProps, { clearChat })(Chat));
