@@ -66,17 +66,17 @@ class AddPost extends React.Component {
 
   render() {
     return (
-      <div className="add-post">
-        <form onSubmit={this.handleSubmit} className="add-note-form">
-          <textarea
+      <div className="add-post-new">
+        <form onSubmit={this.handleSubmit} className="add-note-form-new">
+          <input
             type="text"
             id="title-input"
             name="title"
-            placeholder="Tight Title"
+            placeholder="Name of Item"
             value={this.state.title}
             onChange={this.handleChange}
           />
-          <textarea
+          <input
             type="text"
             id="location-input"
             name="location"
@@ -84,38 +84,40 @@ class AddPost extends React.Component {
             value={this.state.location}
             onChange={this.handleChange}
           />
-          <div id="tag-cover_url-container">
-            <textarea
-              type="text"
-              id="tag-input"
-              name="tags"
-              placeholder="Tenatious Tags"
-              value={this.state.tags}
-              onChange={this.handleChange}
-            />
-            <textarea
-              type="text"
-              id="cover_url-input"
-              name="cover_url"
-              placeholder="Copied Covers"
-              value={this.state.cover_url}
-              onChange={this.handleChange}
-            />
-          </div>
           <textarea
             type="text"
             id="content-input"
             name="content"
-            placeholder="Contentious Content"
+            placeholder="Tell your story..."
             value={this.state.content}
             onChange={this.handleChange}
           />
+          <div id="tag-cover_url-container">
+            <input
+              type="text"
+              id="tag-input"
+              name="tags"
+              placeholder="#Enter #Tags #Here"
+              value={this.state.tags}
+              onChange={this.handleChange}
+            />
+            <input
+              type="text"
+              id="cover_url-input"
+              name="cover_url"
+              placeholder="Image URL"
+              value={this.state.cover_url}
+              onChange={this.handleChange}
+            />
+          </div>
           {/* <button
             className="save-button"
             onClick={this.handleSubmit}
             type="submit"
             value="Submit"
           /> */}
+        </form>
+        <div className="button-box">
           <button
             className="save-button"
             name="offer"
@@ -134,7 +136,8 @@ class AddPost extends React.Component {
           >
             Request
           </button>
-        </form>
+        </div>
+        <div className="landing-padding-large" />
       </div>
     );
   }
