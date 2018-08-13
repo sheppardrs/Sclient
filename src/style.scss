@@ -631,6 +631,7 @@ textarea:active {
   padding-bottom: 5%;
   padding-top: 5%;
   padding-left: 5%;
+  text-align: left;
 }
 
 .chat-conversation-sel {
@@ -639,6 +640,7 @@ textarea:active {
   padding-left: 5%;
   background: white;
   border: thin solid;
+  text-align: left;
 }
 
 .chat-controls {
@@ -649,6 +651,10 @@ textarea:active {
 
 .chat-startconvo {
   margin: 0 5% 0 0;
+}
+
+.startconvo-form{
+  margin-bottom: 20%;
 }
 
 // scroll to bottom first so has extra div so column-reverse does not affect
@@ -667,6 +673,7 @@ textarea:active {
   border-right: solid $border-color;
   margin: 0 30pt 10pt 0;
   padding: 2% 2% 2% 2%;
+  background: white;
 }
 
 .message-box-sent {
@@ -676,6 +683,7 @@ textarea:active {
   border-left: solid $secondary-highlight-color;
   margin: 0 0 10pt 30pt;
   padding: 2% 0 2% 2%;
+  background: white;
 }
 
 .message-header {

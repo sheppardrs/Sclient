@@ -134,7 +134,7 @@ class Chat extends React.Component {
       <div className="chat">
         <div className="chat-controls">
           <div className="chat-conversations">
-          Your Recent Conversations:
+          Recent Conversations:
             {this.state.conversations.map((conversation) => {
             // console.log(this.state.request, post.request);
               return (
