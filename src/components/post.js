@@ -54,7 +54,7 @@ class Post extends React.Component {
             >
               <h4>{this.props.post.title}</h4>
             </NavLink>
-            <p>{this.props.post.location}</p>
+            <p className="post-location">{this.props.post.location}</p>
           </div>
           <div className="post-text">
             {/* <div
