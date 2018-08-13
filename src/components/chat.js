@@ -29,7 +29,7 @@ class Chat extends React.Component {
       messages: [],
       conversations: [],
       message: '',
-      new: this.props.startChat ? this.props.startChat : '', // username for new conversation
+      new: this.props.startChat, // username for new conversation
       to: '', // should be conversation
     };
 
@@ -61,7 +61,7 @@ class Chat extends React.Component {
     console.log(this.state.new);
     if (this.props.startChat) {
       // this.setState({ new: this.props.startChat });
-      this.props.clearChat();
+      // this.props.clearChat();
     }
   }
 

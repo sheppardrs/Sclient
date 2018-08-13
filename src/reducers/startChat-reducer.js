@@ -5,12 +5,12 @@ import { ActionTypes } from '../actions';
 // const post1 = { id: 1, title: 'Sharity', text: 'Give Efficiently, Know Your Impact, Find Your Friend.' };
 
 
-const startChatReducer = (state = { startChat: null }, action) => {
+const startChatReducer = (state = '', action) => {
   switch (action.type) {
     case ActionTypes.STARTCHAT:
       return action.payload;
     case ActionTypes.CLEARCHAT:
-      return null;
+      return '';
     default:
       return state;
   }
