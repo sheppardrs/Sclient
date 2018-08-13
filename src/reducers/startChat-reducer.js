@@ -8,9 +8,9 @@ import { ActionTypes } from '../actions';
 const startChatReducer = (state = { startChat: null }, action) => {
   switch (action.type) {
     case ActionTypes.STARTCHAT:
-      return { startChat: action.payload };
+      return action.payload;
     case ActionTypes.CLEARCHAT:
-      return { startChat: null };
+      return null;
     default:
       return state;
   }

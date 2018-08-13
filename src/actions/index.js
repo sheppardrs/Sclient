@@ -301,7 +301,7 @@ export function startChat(username, history) {
   return (dispatch) => {
     history.push('/chat');
     dispatch({
-      type: 'SOCKET',
+      type: ActionTypes.STARTCHAT,
       payload: username,
     });
   };

@@ -15,8 +15,9 @@ class FullPost extends React.Component {
   }
 
   startConvo(e) {
+    console.log('the author you are contacting is', this.props.post.author.username);
     if (this.props.startChat) {
-      this.props.sartChat(this.props.post.author.username, this.props.history);
+      this.props.startChat(this.props.post.author.username, this.props.history);
     }
     e.preventDefault();
   }
