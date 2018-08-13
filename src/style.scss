@@ -104,8 +104,8 @@ button {
   width: 100%;
 }
 .landing-footer{
-  background-image: $gradient; 
-  color: white; 
+  background-image: $gradient;
+  color: white;
 }
 .landing-section-mission{
   background: $background;
@@ -665,6 +665,9 @@ textarea:active {
   width: 60%;
 }
 
+#chat-new-messages{
+  border-right: solid $secondary-highlight-color;
+}
 // style these two at the same time probably
 .message-box-rec {
   display: flex;
