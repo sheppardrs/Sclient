@@ -65,7 +65,6 @@ class Chat extends React.Component {
     }
   }
 
-
   // handle receiving the list of conversations that this user is in
   handleConvos(convos) {
     console.log('received convos', convos);
@@ -84,6 +83,11 @@ class Chat extends React.Component {
     console.log('selecting convo: ', conversation);
     this.setState({ to: conversation });
     this.socket.emit('convo', conversation);
+    // remove new id and color
+    const convoIndex = this.state.conversations.findIndex(i => i._id === conversation._id);
+    const newConvos = this.state.conversations;
+    newConvos[convoIndex].unseen = '';
+    this.setState({ conversations: newConvos });
     e.preventDefault();
   }
 
@@ -103,6 +107,11 @@ class Chat extends React.Component {
       this.setState(prevState => ({
         messages: [...prevState.messages, message],
       }));
+    } else {
+      const convoIndex = this.state.conversations.findIndex(i => i._id === message.to);
+      const newConvos = this.state.conversations;
+      newConvos[convoIndex].unseen = this.username;
+      this.setState({ conversations: newConvos });
     }
   }
 
