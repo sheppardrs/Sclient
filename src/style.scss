@@ -627,8 +627,18 @@ textarea:active {
   flex-direction: column;
 }
 
+.chat-conversation{
+  padding-bottom: 5%;
+  padding-top: 5%;
+  padding-left: 5%;
+}
+
 .chat-conversation-sel {
-  color: $text-selected;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  padding-left: 5%;
+  background: white;
+  border: thin solid;
 }
 
 .chat-controls {
@@ -654,18 +664,18 @@ textarea:active {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border-bottom: thin solid $border-color;
-  border-right: thin solid $border-color;
-  margin: 0 0 10pt 0;
+  border-right: solid $border-color;
+  margin: 0 30pt 10pt 0;
+  padding: 2% 2% 2% 2%;
 }
 
 .message-box-sent {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border-bottom: thin solid $border-color;
-  border-left: thin solid $border-color;
-  margin: 0 0 10pt 0;
+  border-left: solid $secondary-highlight-color;
+  margin: 0 0 10pt 30pt;
+  padding: 2% 0 2% 2%;
 }
 
 .message-header {
@@ -677,6 +687,7 @@ textarea:active {
 .message-author {
   margin: 0 0 2pt 10pt;
   color: $text-color-light;
+  font-weight: 100;
 }
 
 .message-header #message-time {
@@ -691,6 +702,7 @@ textarea:active {
 .message-content {
   margin: 0 3pt 3pt 5pt;
 }
+
 
 .message-enter {
   padding: 3pt 5pt 3pt 5pt;
