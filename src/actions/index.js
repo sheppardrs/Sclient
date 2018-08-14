@@ -50,7 +50,7 @@ export function fetchPosts(select) {
       console.log('FAILED IN ACTION fetchPosts');
     });
 
-    // TODO: ask for notifications as well?
+    // ask for notifications as well?
     // console.log('getting username', localStorage.getItem('token'));
     // proxy to check is signed in/authorized
     if (localStorage.getItem('token')) {
