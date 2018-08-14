@@ -375,17 +375,23 @@ a {
   margin: 5pt 10pt 5pt 0;
   text-transform: uppercase;
   color: $text-color;
+  font-weight: 500;
 }
 
 .post-header h4:hover {
-  border-bottom-style: solid;
+ // border-bottom-style: solid;
 }
 
 .post-title-link {
   text-decoration: none;
   padding-bottom: -10pt;
+  font-size: 16pt;
 }
 
+.post-location{
+  font-weight: 200;
+  font-style: italic;
+}
 .post-buttons {
   display: flex;
   flex-direction: column;
