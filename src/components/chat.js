@@ -2,14 +2,13 @@ import React from 'react';
 import socketIOc from 'socket.io-client';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { clearChat } from '../actions';
+import { clearChat, chatserverURL } from '../actions';
 // this should probably be decomposed into a few different components
 
 
 // this component is based on the hackermoon article "A simple messaging app with react native and socket.io"
 // https://hackernoon.com/a-simple-messaging-app-with-react-native-and-socket-io-e1cae3df7bda
-// const chatserverURL = 'http://localhost:3000'; // for local testing
-const chatserverURL = 'https://share-ity.herokuapp.com/'; // for heroku
+
 
 // structure from stack overflow, heavily modified
 // https://stackoverflow.com/questions/10599148/how-do-i-get-the-current-time-only-in-javascript

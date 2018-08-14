@@ -22,14 +22,17 @@ export const ActionTypes = {
 };
 
 
-// Some constants for interfacing with the API
-// For herokuapp given:
-// const ROOT_URL = 'https://cs52-blog.herokuapp.com/api';
+// Some constants for interfacing with the API and chatserver
+// chat server is only used in the chat component as it is the only
+// compononent that uses socket.io
 // For my server
 // const ROOT_URL = 'http://localhost:9090/api';
 const ROOT_URL = 'https://share-ity.herokuapp.com/api';
 const API_KEY = '';
-// const API_KEY = '?key=r_blake';
+
+// chat server URL
+// const chatserverURL = 'http://localhost:3000'; // for local testing
+export const chatserverURL = 'https://share-ity.herokuapp.com/'; // for heroku
 
 
 // get all the posts
