@@ -6,6 +6,7 @@ import searchReducer from './search-reducer';
 import sortbyReducer from './sortby-reducer';
 import filterbyReducer from './filterby-reducer';
 import startChatReducer from './startChat-reducer';
+import notificationReducer from './notification-reducer';
 
 const rootReducer = combineReducers({
   all: postsReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   sortV: sortbyReducer,
   filterV: filterbyReducer,
   startChat: startChatReducer,
+  notifications: notificationReducer,
 });
 
 export default rootReducer;

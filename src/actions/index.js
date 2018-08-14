@@ -14,6 +14,7 @@ export const ActionTypes = {
   NOTHING: 'NOTHING',
   STARTCHAT: 'STARTCHAT',
   CLEARCHAT: 'CLEARCHAT',
+  NOTIFICATIONS: 'NOTIFICATIONS',
   // will add these as we go
   // UPDATE_POST: 'UPDATE_POST',
   // CREATE_POST: 'CREATE_POST',
@@ -25,7 +26,7 @@ export const ActionTypes = {
 // For herokuapp given:
 // const ROOT_URL = 'https://cs52-blog.herokuapp.com/api';
 // For my server
-// const ROOT_URL = 'http://localhost:9090';
+// const ROOT_URL = 'http://localhost:9090/api';
 const ROOT_URL = 'https://share-ity.herokuapp.com/api';
 const API_KEY = '';
 // const API_KEY = '?key=r_blake';
@@ -48,6 +49,21 @@ export function fetchPosts(select) {
       // hit an error -> do something else
       console.log('FAILED IN ACTION fetchPosts');
     });
+
+    // TODO: ask for notifications as well?
+    // console.log('getting username', localStorage.getItem('token'));
+    // proxy to check is signed in/authorized
+    if (localStorage.getItem('token')) {
+      axios.get(`${ROOT_URL}/notifications${API_KEY}`, {
+        headers: { authorization: localStorage.getItem('token') },
+      }).then((response) => {
+        console.log('Notifications: ', response.data.newMess);
+        dispatch({
+          type: ActionTypes.NOTIFICATIONS,
+          payload: response.data.newMess,
+        });
+      });
+    }
   };
 }
 
