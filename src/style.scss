@@ -668,7 +668,6 @@ textarea:active {
   padding-top: 5%;
   padding-left: 5%;
   background: white;
-  border: thin solid;
   text-align: left;
 }
 
@@ -748,7 +747,8 @@ textarea:active {
   padding: 3pt 5pt 3pt 5pt;
   font-size: inherit;
   width: 90%;
-  border: thin solid $border-color;
+  border-bottom: thin solid $border-color;
+  margin-bottom: 5pt;
 }
 
 .account-settings {
