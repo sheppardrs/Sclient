@@ -10,7 +10,9 @@ import logo from '../img/sharitylogo.png';
 function Logo() {
   return (
     <div className="logo">
-      <img src={logo} alt="logo" style={{ width: 84, height: 28 }} />
+      <NavLink className="navlink" to="/" exact>
+        <img src={logo} alt="logo" style={{ width: 84, height: 28 }} />
+      </NavLink>
     </div>
   );
 }

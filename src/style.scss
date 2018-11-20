@@ -95,10 +95,11 @@ button {
   margin: 0 auto;
 }
 .slogan{
-  color: $text-color;
+  color: $logo-color;
   text-align: center;
   font-weight: 300;
-  background: rgba(255, 255, 255, .25);
+  font-family: 'IM Fell English SC', serif;
+  //background: rgba(255, 255, 255, .25);
 }
 .landing-title{
   background-image: $gradient;
@@ -136,8 +137,13 @@ button {
   width: 30%;
   float: left;
   padding-right: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-.landing-triplet-last{
+
+#landing-triplet-last{
   width: 30%;
   float: right;
 }

@@ -74,7 +74,7 @@ const Landing = (props) => {
               <img id="howitworks-one" alt="second step is to find" src={process2} style={{ width: 150, height: 150 }} />
               <p>A fellow users reads your story and starts a conversation.</p>
             </div>
-            <div className="landing-triplet-last">
+            <div className="landing-triplet" id="landing-triplet-last">
               <img id="howitworks-one" alt="third step is to share an item and find a connection" src={process3} style={{ width: 150, height: 150 }} />
               <p>You share an item and make a friend along the way!</p>
             </div>
