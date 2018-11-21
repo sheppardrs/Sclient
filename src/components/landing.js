@@ -29,7 +29,7 @@ const Landing = (props) => {
   // }
   let footer, signInUp;
   // if signed in hide signup and show account settings
-  if (this.props.auth.authenticated) {
+  if (props.auth.authenticated) {
     footer = <About />;
     signInUp = <div />;
   } else { // else show sign ups
@@ -110,4 +110,3 @@ const mapStateToProps = state => (
 
 
 export default withRouter(connect(mapStateToProps, null)(Landing));
-// export default Landing;
