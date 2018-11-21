@@ -119,19 +119,17 @@ button {
   width:100%;
 }
 .landing-content{
-  width:70%;
+  width:80%;
   margin: 0 auto;
   padding-top: 50px;
   padding-bottom: 50px;
 }
-
 .landing-content p{
   font-weight: 300;
 }
-
 .landing-triplet-box{
   display: flex;
-  flex-direction: row;
+  flex-grow: row wrap;
 }
 .landing-triplet{
   width: 30%;
@@ -142,7 +140,6 @@ button {
   align-items: center;
   text-align: center;
 }
-
 #landing-triplet-last{
   width: 30%;
   float: right;
@@ -173,7 +170,7 @@ button {
   border-width: thin;
   border-right: 0;
   border-radius: 3pt 0 0 3pt;
-  width: 120pt;
+  width: 90%;
   margin: 0;
   padding-right: 50pt;
   padding-left: 10pt;
