@@ -8,9 +8,28 @@ import process3 from '../img/process-09.png';
 import About from './account';
 
 const Landing = (props) => {
+  // constructor(props) {
+  //   super(props);
+  //
+  //   this.state = {
+  //     width: window.innerWidth,
+  //   };
+  // }
+  //
+  // componentWillMount() {
+  //   window.addEventListener('resize', this.handleWindowSizeChange);
+  // }
+  //
+  // componentWillUnmount() {
+  //   window.removeEventListener('resize', this.handleWindowSizeChange);
+  // }
+  //
+  // handleWindowSizeChange = () => {
+  //   this.setState({ width: window.innerWidth });
+  // }
   let footer, signInUp;
   // if signed in hide signup and show account settings
-  if (props.auth.authenticated) {
+  if (this.props.auth.authenticated) {
     footer = <About />;
     signInUp = <div />;
   } else { // else show sign ups
@@ -27,13 +46,9 @@ const Landing = (props) => {
       <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button>
     );
   }
+
   return (
     <div className="landing">
-      {/* <nav>
-        <ul className="header">
-          <li><NavLink className="navlink" to="/signin">Sign In</NavLink></li>
-        </ul>
-      </nav> */}
       <div className="landing-title">
         <div className="landing-padding" />
         <div className="logo-box" ><img src={logo} alt="logo" style={{ width: 420, height: 140 }} /></div>
@@ -51,14 +66,14 @@ const Landing = (props) => {
         <div className="landing-content">
           <h1>Mission</h1>
           <p>
-           Nowadays we have so many opportunities to give to causes. However, there is little, if any, connection between the giver
-           and the receiver, and this lack of communication results in many donations that are not properly distributed to those who
-           need it most and a lack of human connection around the need and impact of an item.<br /><br />
-           Sharity is a non-profit that reimagines donating and receiving by building human connections around finding items a more
-           useful home. To do this you can tell your story, the story of what could help you, or the story of what you have to give
-           in order to connect with someone who can help you either give or receive. <br /><br />
-           Together we make up a peer to peer platform to find items new homes and build community. Together we will build connections
-           that last beyond shared items.
+         Nowadays we have so many opportunities to give to causes. However, there is little, if any, connection between the giver
+         and the receiver, and this lack of communication results in many donations that are not properly distributed to those who
+         need it most and a lack of human connection around the need and impact of an item.<br /><br />
+         Sharity is a non-profit that reimagines donating and receiving by building human connections around finding items a more
+         useful home. To do this you can tell your story, the story of what could help you, or the story of what you have to give
+         in order to connect with someone who can help you either give or receive. <br /><br />
+         Together we make up a peer to peer platform to find items new homes and build community. Together we will build connections
+         that last beyond shared items.
           </p>
         </div>
       </div>
@@ -81,14 +96,6 @@ const Landing = (props) => {
           </div>
         </div>
       </div>
-      {/* <div className="landing-footer">
-        <div className="landing-content">
-          <h1>All {'that\'s'} missing is you</h1>
-          <div className="button-box">
-            <button className="save-button-white"><NavLink className="navlink" to="/signup">Sign Up</NavLink></button>
-          </div>
-        </div>
-      </div> */}
       {footer}
     </div>
   );
