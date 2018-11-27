@@ -59,30 +59,14 @@ button {
   font-size: inherit;
 }
 
-
 .logo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
   margin-top:  0;
   padding-left: 2%;
   padding-right: 2%;
 }
-
-
-// TODO: is this still used?
-.logo-life {
-  font-size: 20pt;
-  margin: 0;
-  font-family: 'Galada', cursive;
-}
-
-.logo-slogan {
-  font-size: 12pt;
-  margin: 0;
-  font-family: 'IM Fell English SC', serif;
-}
-// to here??
 
 // The Landing Page
 .logo-box{
@@ -162,7 +146,7 @@ button {
 .search-bar {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  // align-items: center;
 }
 
 #search-input {
@@ -172,7 +156,7 @@ button {
   border-style: solid;
   border-width: thin;
   border-right: 0;
-  border-radius: 3pt 0 0 3pt;
+  border-radius: 0 0 0 0;
   width: 90%;
   margin: 0;
   padding-right: 50pt;
@@ -191,7 +175,7 @@ button {
 }
 
 .search-bar button:last-child{
-  border-radius: 0 3pt 3pt 0;
+  border-radius: 0 0 0 0;
   background-color: $shadow-before;
   transition: 200ms;
 }
@@ -209,14 +193,16 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   background-image: $gradient;
+  padding: 1% 0 1% 0;
 }
 
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  // justify-content: space-around;
   padding: 0;
   color: $text-color;
+  margin: 0;
 }
 
 a {
@@ -225,9 +211,8 @@ a {
 
 .header li {
   padding: 0 0 2pt 0;
-  margin: 5pt;
-  margin-right: 15pt;
   list-style: none;
+  padding: 0 2% 0 2%;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 100;
@@ -282,8 +267,13 @@ a {
 // box with posts and filters
 .posts-filters-box {
   display: flex;
-  flex-direction: row;
+  flex-grow: row;
+  flex-wrap: wrap;
   margin: 3% 3% 0 3%;
+}
+
+.posts {
+  width: 80%;
 }
 
 // toggle
@@ -325,6 +315,8 @@ a {
   margin: 25pt 0 0 0;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  height: 5%;
 }
 
 .sort-buttons:first-of-type div {
@@ -605,7 +597,7 @@ textarea:active {
   border-width: 1pt;
   border-radius: 30pt;
   padding: 3pt 15pt 3pt 15pt;
-  margin: 0 0 5pt 0;
+  margin: 0 0 0 0;
   background-color: none;
   color: white;
   text-transform: uppercase;

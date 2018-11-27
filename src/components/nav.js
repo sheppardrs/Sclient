@@ -39,7 +39,7 @@ class Nav extends React.Component {
   };
 
   render() {
-    const isMobile = this.state.width <= 500;
+    const isMobile = this.state.width <= 650;
     let links, linkbar;
 
     // set the links based on whether it is authenticated or not
