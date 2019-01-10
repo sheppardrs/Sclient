@@ -47,7 +47,7 @@ class Nav extends React.Component {
       links = (
         <ul className="header">
           <li><NavLink className="navlink" to="/" exact>Home</NavLink></li>
-          <li><NavLink className="navlink" to="/posts/new">Add Post</NavLink></li>
+          <li><NavLink className="navlink" to="/posts/new">Post</NavLink></li>
           <li><NavLink className="navlink" to="/about">About</NavLink></li>
           <li><NavLink className="navlink" to="/chat">Chat{this.props.notifications > 0 ? <div id="new-mess-notification">{this.props.notifications}</div> : <div />}</NavLink></li>
           <li><NavLink id="signout-link" className="navlink" to="/" onClick={(e) => { this.props.signoutUser(this.props.history); }}>Sign Out</NavLink></li>
