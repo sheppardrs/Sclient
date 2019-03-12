@@ -22,9 +22,14 @@ class SinglePost extends React.Component {
           onDelete={this.props.deletePost}
           onLike={this.props.likePost}
           history={this.props.history}
-        />);
+        />
+      );
     } else {
-      return (<h1>props.posts does not exist!</h1>);
+      return (
+        <h1>
+          props.posts does not exist!
+        </h1>
+      );
     }
   }
 }

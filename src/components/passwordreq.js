@@ -51,12 +51,12 @@ class PasswordResetReq extends React.Component {
           exact
           role="link"
           tabIndex={-1}
-        >Home
+        >
+Home
         </NavLink>
       </div>
     )
-      :
-      <div />;
+      : <div />;
     return (
       <div className="add-post">
         {submittedMess}

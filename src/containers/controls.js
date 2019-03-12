@@ -14,6 +14,7 @@ class Controls extends React.Component {
     //   sort: 'newest',
     // };
   }
+
   componentWillMount() {
     // const select = {
     //   filter: 'none',
@@ -53,17 +54,22 @@ class Controls extends React.Component {
 
   render() {
     console.log('this.props.sortV', this.props.sortV);
-    const favorites = this.props.auth ? (
-      <button
-        onClick={this.handleFavs}
-      >Favorites
-      </button>)
-      :
-      <div />;
+
+    const favorites = this.props.auth
+      ? (
+        <button type="button" onClick={this.handleFavs}>
+          Favorites
+        </button>
+      )
+      : <div />;
+
     return (
       <div className="sort-buttons">
-        <div>Sort By</div>
+        <div>
+          Sort By
+        </div>
         <button
+          type="button"
           onClick={this.handleClick}
           id={(this.props.sortV === 'newest') ? 'sort-selected' : ''}
           name="newest"
@@ -71,6 +77,7 @@ class Controls extends React.Component {
           Recent
         </button>
         <button
+          type="button"
           onClick={this.handleClick}
           id={(this.props.sortV === 'trending') ? 'sort-selected' : ''}
           name="trending"
@@ -78,6 +85,7 @@ class Controls extends React.Component {
           Trending
         </button>
         <button
+          type="button"
           onClick={this.handleClick}
           id={(this.props.sortV === 'location') ? 'sort-selected' : ''}
           name="location"
@@ -85,6 +93,7 @@ class Controls extends React.Component {
           Location
         </button>
         <button
+          type="button"
           onClick={this.handleClick}
           id={(this.props.sortV === 'title') ? 'sort-selected' : ''}
           name="title"

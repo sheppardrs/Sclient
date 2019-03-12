@@ -63,9 +63,12 @@ class FullPost extends React.Component {
               tabIndex={-1}
               className="fas fa-arrow-up"
               role="button"
-            > {this.props.post.likes}
+            >
+              {' '}
+              {this.props.post.likes}
             </i>
-          </div>);
+          </div>
+        );
       } else {
         editbutton = (
           <div className="post-buttons">
@@ -74,7 +77,9 @@ class FullPost extends React.Component {
               tabIndex={-1}
               className="fas fa-arrow-up"
               role="button"
-            > {this.props.post.likes}
+            >
+              {' '}
+              {this.props.post.likes}
             </i>
             <i
               onClick={this.startConvo}
@@ -82,10 +87,15 @@ class FullPost extends React.Component {
               className="fas fa-comments"
               role="button"
             />
-          </div>);
+          </div>
+        );
       }
     } else {
-      editbutton = <div>loading...</div>;
+      editbutton = (
+        <div>
+loading...
+        </div>
+      );
     }
     return (
       <div>
@@ -99,7 +109,9 @@ class FullPost extends React.Component {
         <div className="full-post">
           <div className="full-post-header">
             <img src={this.props.post.cover_url} alt="cover for post" />
-            <h4 id="title-input">{this.props.post.title}</h4>
+            <h4 id="title-input">
+              {this.props.post.title}
+            </h4>
             <div>
               {editbutton}
               {/* old buttons <i

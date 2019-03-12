@@ -27,9 +27,14 @@ class EditAPost extends React.Component {
           createPost={this.props.updatePost}
           post={this.props.post}
           history={this.props.history}
-        />);
+        />
+      );
     } else {
-      return <div>loading...</div>;
+      return (
+        <div>
+          loading...
+        </div>
+      );
     }
   }
 }

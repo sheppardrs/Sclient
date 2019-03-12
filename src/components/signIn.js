@@ -45,27 +45,33 @@ class SignIn extends React.Component {
 
   render() {
     const failedMess = this.state.failed ? (
-      <div className="failure-mess">Sign in failed. Please{' '}
+      <div className="failure-mess">
+        Sign in failed. Please
+        {' '}
         <NavLink
           className="signup-link"
           to="/signup"
           exact
           role="link"
           tabIndex={-1}
-        >sign up
+        >
+        sign up
         </NavLink>
-        {' '}, try again, or {' '}
+        {' '}
+        , try again, or
+        {' '}
         <NavLink
           className="signup-link"
           to="/verify"
           exact
           role="link"
           tabIndex={-1}
-        >verify your account.
+        >
+        verify your account.
         </NavLink>
-      </div>)
-      :
-      <div />;
+      </div>
+    )
+      : <div />;
     return (
       <div className="add-post">
         {failedMess}

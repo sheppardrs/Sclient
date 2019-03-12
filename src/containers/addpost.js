@@ -14,7 +14,8 @@ const AddAPost = (props) => {
       createPost={props.createPost}
       post={post}
       history={props.history}
-    />);
+    />
+  );
 };
 
 

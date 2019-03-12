@@ -52,6 +52,7 @@ class Search extends React.Component {
           onChange={this.handleChange}
         />
         <button
+          type="button"
           className="cancel-button"
           name="clear"
           value=""
@@ -60,6 +61,7 @@ class Search extends React.Component {
           <i className="fa fa-times" aria-hidden="true" />
         </button>
         <button
+          type="button"
           className="search-button"
           name="search"
           onClick={this.handleSubmit}

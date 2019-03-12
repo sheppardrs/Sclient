@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from '../components/post';
+import Post from './post';
 
 
 // this can be a dumb or smart component -
@@ -34,40 +34,43 @@ class Posts extends React.Component {
     if (this.props.posts) {
       return (
         <div className="posts">
-          {this.state.request ?
-            <div className="toggle-req-offer">
-              <i
-                className="toggle-selected"
-                id="toggle-req-offer-request"
-                // style={{ fontWeight: 'bold' }}
-              >
+          {this.state.request
+            ? (
+              <div className="toggle-req-offer">
+                <i
+                  className="toggle-selected"
+                  id="toggle-req-offer-request"
+                >
                 Requests
-              </i>
-              <button
-                // className="toggle-unselected"
-                onClick={this.toggleReqOffer}
-                name="Offer"
-              >
+                </i>
+                <button
+                  type="button"
+                  // className="toggle-unselected"
+                  onClick={this.toggleReqOffer}
+                  name="Offer"
+                >
               Offers
-              </button>
-            </div>
-            :
-            <div className="toggle-req-offer">
-              <button
+                </button>
+              </div>
+            )
+            : (
+              <div className="toggle-req-offer">
+                <button
+                  type="button"
                 // className="toggle-unselected"
-                id="toggle-req-offer-request"
-                onClick={this.toggleReqOffer}
-                name="Request"
-              >
+                  id="toggle-req-offer-request"
+                  onClick={this.toggleReqOffer}
+                  name="Request"
+                >
               Requests
-              </button>
-              <i
-                className="toggle-selected"
-                // style={{ fontWeight: 'bold' }}
-              >
+                </button>
+                <i
+                  className="toggle-selected"
+                >
                 Offers
-              </i>
-            </div>
+                </i>
+              </div>
+            )
             }
           {this.props.posts.map((post) => {
             // console.log(this.state.request, post.request);
@@ -86,11 +89,15 @@ class Posts extends React.Component {
             } else {
               return <div key={post.id} />;
             }
-        })}
+          })}
         </div>
       );
     } else {
-      return (<h1>props.posts does not exist!</h1>);
+      return (
+        <h1>
+props.posts does not exist!
+        </h1>
+      );
     }
   }
 }

@@ -34,6 +34,7 @@ class AddPost extends React.Component {
       this.setState({ id: this.props.post._id });
     }
   }
+
   // change the state based on which input was changed
   handleChange(e) {
     const field = e.target.name;

@@ -9,7 +9,7 @@ import AddAPost from '../containers/addpost';
 import SignInUser from '../containers/signIn';
 import SignUp from '../containers/signUp';
 import EditAPost from '../containers/editpost';
-import Nav from '../components/nav';
+import Nav from './nav';
 import RequireAuth from '../containers/requireAuth';
 import Verify from './verify';
 import PasswordResetReq from './passwordreq';
@@ -59,9 +59,14 @@ import Welcome from './welcome';
 const PostSignUp = (props) => {
   return (
     <div className="full-post">
-      <h1>Sign Up succeeded.</h1>
+      <h1>
+Sign Up succeeded.
+      </h1>
       Check your email for a verification email that is the last step before posting!
-      <br /><NavLink className="navlink" to="/">Visit the homepage to begin sharing.</NavLink>
+      <br />
+      <NavLink className="navlink" to="/">
+Visit the homepage to begin sharing.
+      </NavLink>
     </div>
   );
 };
@@ -93,7 +98,12 @@ const App = () => {
               <FullPost post={post1} {...props} />
           )}
         /> */}
-          <Route render={() => (<div>Page not found.</div>)} />
+          <Route render={() => (
+            <div>
+Page not found.
+            </div>
+          )}
+          />
         </Switch>
       </div>
     </Router>

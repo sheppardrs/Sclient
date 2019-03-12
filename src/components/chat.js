@@ -76,6 +76,7 @@ class Chat extends React.Component {
     console.log('REC newConvo');
     this.socket.emit('join', this.username);
   }
+
   // select a conversation
   // send a request for the messages of that conversation
   selectConvo(conversation, e) {
@@ -158,7 +159,11 @@ class Chat extends React.Component {
                     if (participant === this.username) {
                       return (<div key={participant} />);
                     } else {
-                      return (<div key={participant} className="chat-conversation-part">{participant}</div>);
+                      return (
+                        <div key={participant} className="chat-conversation-part">
+                          {participant}
+                        </div>
+                      );
                     }
                   })}
                 </button>
@@ -191,28 +196,28 @@ class Chat extends React.Component {
         <div className="chat-messages">
           <div>
             {this.state.messages.map((message) => {
-          // console.log(this.state.request, post.request);
-            return (
-              <div
-                className={message.from === this.username ? 'message-box-sent' : 'message-box-rec'}
-                key={message._id}
-              >
-                <div className="message-header">
-                  <div className="message-author">
-                    {message.from}
-                  </div>
-                  <div id="message-time" className="time">
-                    {timeHrsMin(message.createdAt)}
-                  </div>
-                </div>
+              // console.log(this.state.request, post.request);
+              return (
                 <div
-                  className="message-content-sent"
+                  className={message.from === this.username ? 'message-box-sent' : 'message-box-rec'}
+                  key={message._id}
                 >
-                  {message.content}
+                  <div className="message-header">
+                    <div className="message-author">
+                      {message.from}
+                    </div>
+                    <div id="message-time" className="time">
+                      {timeHrsMin(message.createdAt)}
+                    </div>
+                  </div>
+                  <div
+                    className="message-content-sent"
+                  >
+                    {message.content}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
             <form
               onSubmit={this.handleSend}
               className="message-form"

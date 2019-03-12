@@ -22,7 +22,8 @@ const Welcome = (props) => {
     show = (
       <div>
         <Landing />
-      </div>);
+      </div>
+    );
   }
   return (
     <div>

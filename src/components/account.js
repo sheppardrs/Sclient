@@ -5,11 +5,22 @@ const About = (props) => {
   return (
     <div className="landing-footer">
       <div className="landing-content">
-        <h1>Account Help</h1>
+        <h1>
+          Account Help
+        </h1>
         <div className="button-box">
-          <button className="save-button-white">  <NavLink className="navlink" to="/resetpasswordreq">Reset password</NavLink></button>
-          <br /><br />
-          <button className="save-button-white">  <NavLink className="navlink" to="/verify">Verify your account</NavLink></button>
+          <button className="save-button-white">
+            <NavLink className="navlink" to="/resetpasswordreq">
+              Reset password
+            </NavLink>
+          </button>
+          <br />
+          <br />
+          <button className="save-button-white">
+            <NavLink className="navlink" to="/verify">
+              Verify your account
+            </NavLink>
+          </button>
         </div>
       </div>
     </div>

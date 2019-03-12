@@ -31,9 +31,11 @@ class Nav extends React.Component {
   componentWillMount() {
     window.addEventListener('resize', this.handleWindowSizeChange);
   }
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleWindowSizeChange);
   }
+
   handleWindowSizeChange = () => {
     this.setState({ width: window.innerWidth });
   };
@@ -46,21 +48,66 @@ class Nav extends React.Component {
     if (this.props.auth.authenticated) {
       links = (
         <ul className="header">
-          <li><NavLink className="navlink" to="/" exact>Home</NavLink></li>
-          <li><NavLink className="navlink" to="/posts/new">Post</NavLink></li>
-          <li><NavLink className="navlink" to="/about">About</NavLink></li>
-          <li><NavLink className="navlink" to="/chat">Chat{this.props.notifications > 0 ? <div id="new-mess-notification">{this.props.notifications}</div> : <div />}</NavLink></li>
-          <li><NavLink id="signout-link" className="navlink" to="/" onClick={(e) => { this.props.signoutUser(this.props.history); }}>Sign Out</NavLink></li>
+          <li>
+            <NavLink className="navlink" to="/" exact>
+Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navlink" to="/posts/new">
+Post
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navlink" to="/about">
+About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navlink" to="/chat">
+Chat
+              {this.props.notifications > 0 ? (
+                <div id="new-mess-notification">
+                  {this.props.notifications}
+                </div>
+              ) : <div />}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink id="signout-link" className="navlink" to="/" onClick={(e) => { this.props.signoutUser(this.props.history); }}>
+Sign Out
+            </NavLink>
+          </li>
         </ul>
       );
     } else {
       links = (
         <ul className="header">
-          <li><NavLink className="navlink" to="/" exact>Home</NavLink></li>
-          <li><NavLink className="navlink" to="/posts/new">Add Post</NavLink></li>
-          <li><NavLink className="navlink" to="/about">About</NavLink></li>
-          <li><NavLink className="navlink" to="/signin">Sign In</NavLink></li>
-          <li><NavLink className="navlink" to="/signup">Sign Up</NavLink></li>
+          <li>
+            <NavLink className="navlink" to="/" exact>
+Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navlink" to="/posts/new">
+Add Post
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navlink" to="/about">
+About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navlink" to="/signin">
+Sign In
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navlink" to="/signup">
+Sign Up
+            </NavLink>
+          </li>
         </ul>
       );
     }
@@ -71,7 +118,7 @@ class Nav extends React.Component {
         <div>
           <nav>
             <Logo />
-            <button className="save-button-white" onClick={() => this.setState(prevState => ({ showMobile: !prevState.showMobile }))}>
+            <button type="button" className="save-button-white" onClick={() => this.setState(prevState => ({ showMobile: !prevState.showMobile }))}>
             Menu
             </button>
           </nav>
@@ -81,7 +128,16 @@ class Nav extends React.Component {
         </div>
       );
     } else {
-      linkbar = (<nav> <Logo /> <Search /> {links}</nav>);
+      linkbar = (
+        <nav>
+          {' '}
+          <Logo />
+          {' '}
+          <Search />
+          {' '}
+          {links}
+        </nav>
+      );
     }
     return (linkbar);
 

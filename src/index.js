@@ -40,9 +40,6 @@ if (token) {
 ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider>
-  , document.getElementById('main'),
+  </Provider>,
+  document.getElementById('main'),
 );
-
-
-// console.log('starting up!');

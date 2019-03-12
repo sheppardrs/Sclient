@@ -48,11 +48,12 @@ class SignUp extends React.Component {
 
   render() {
     const failedMess = this.state.failed ? (
-      <div className="failure-mess">Sign up failed. Please try again
+      <div className="failure-mess">
+        Sign up failed. Please try again
         and be sure to fill each field.
-      </div>)
-      :
-      <div />;
+      </div>
+    )
+      : <div />;
     return (
       <div className="add-post">
         {failedMess}

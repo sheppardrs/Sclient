@@ -52,9 +52,13 @@ class Post extends React.Component {
               role="button"
               tabIndex={-1}
             >
-              <h4>{this.props.post.title}</h4>
+              <h4>
+                {this.props.post.title}
+              </h4>
             </NavLink>
-            <p className="post-location">{this.props.post.location}</p>
+            <p className="post-location">
+              {this.props.post.location}
+            </p>
           </div>
           <div className="post-text">
             {/* <div
@@ -64,7 +68,8 @@ class Post extends React.Component {
             }}
           /> */}
             <div className="post-preview">
-              {this.props.post.preview}...
+              {this.props.post.preview}
+...
             </div>
             <div className="post-tags">
               {this.props.post.tags}

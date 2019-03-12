@@ -26,8 +26,8 @@ export const ActionTypes = {
 // chat server is only used in the chat component as it is the only
 // compononent that uses socket.io
 // For my server
-// const ROOT_URL = 'http://localhost:9090/api';
-const ROOT_URL = 'https://share-ity.herokuapp.com/api';
+const ROOT_URL = 'http://localhost:9090/api';
+// const ROOT_URL = 'https://share-ity.herokuapp.com/api';
 const API_KEY = '';
 
 // chat server URL

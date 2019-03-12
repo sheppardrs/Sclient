@@ -52,12 +52,12 @@ class PasswordReset extends React.Component {
           exact
           role="link"
           tabIndex={-1}
-        >Sign In
+        >
+Sign In
         </NavLink>
       </div>
     )
-      :
-      <div />;
+      : <div />;
     return (
       <div className="add-post">
         {submittedMess}
