@@ -85,9 +85,15 @@ class Chat extends React.Component {
     this.socket.emit('convo', conversation);
     // remove new id and color
     const convoIndex = this.state.conversations.findIndex(i => i._id === conversation._id);
-    const newConvos = this.state.conversations;
-    newConvos[convoIndex].unseen = '';
-    this.setState({ conversations: newConvos });
+
+    this.setState((prevState) => {
+      const newConvos = this.prevState.conversations;
+      newConvos[convoIndex].unseen = '';
+      return ({ conversations: newConvos });
+    });
+    // const newConvos = this.state.conversations;
+    // newConvos[convoIndex].unseen = '';
+    // this.setState({ conversations: newConvos });
     e.preventDefault();
   }
 
@@ -109,9 +115,15 @@ class Chat extends React.Component {
       }));
     } else {
       const convoIndex = this.state.conversations.findIndex(i => i._id === message.to);
-      const newConvos = this.state.conversations;
-      newConvos[convoIndex].unseen = this.username;
-      this.setState({ conversations: newConvos });
+
+      this.setState((prevState) => {
+        const newConvos = this.prevState.conversations;
+        newConvos[convoIndex].unseen = this.username;
+        return ({ conversations: newConvos });
+      });
+      // const newConvos = this.state.conversations;
+      // newConvos[convoIndex].unseen = this.username;
+      // this.setState({ conversations: newConvos });
     }
   }
 
@@ -149,6 +161,7 @@ class Chat extends React.Component {
             // console.log(this.state.request, post.request);
               return (
                 <button
+                  type="button"
                   className={conversation._id === this.state.to._id ? 'chat-conversation-sel' : 'chat-conversation'}
                   id={conversation.unseen === this.username ? 'chat-new-messages' : ''}
                   key={conversation._id}

@@ -83,7 +83,7 @@ Building community through shared items and stories
       <div className="landing-section-mission">
         <div className="landing-content">
           <h1>
-Mission
+            Inspiration
           </h1>
           <p>
          Nowadays we have so many opportunities to give to causes. However, there is little, if any, connection between the giver

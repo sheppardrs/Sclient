@@ -195,7 +195,10 @@ nav {
   background-image: $gradient;
   padding: 1% 0 1% 0;
 }
-
+.mobile-nav .header{
+  transition: all 1s ease;
+  background-image: $gradient;
+}
 .header {
   display: flex;
   flex-direction: row;
@@ -462,7 +465,6 @@ a {
 
 .full-post-header img {
   width: 15%;
-  height: 15%;
 }
 
 .full-post-body, .full-post-author{

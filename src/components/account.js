@@ -9,14 +9,14 @@ const About = (props) => {
           Account Help
         </h1>
         <div className="button-box">
-          <button className="save-button-white">
+          <button type="button" className="save-button-white">
             <NavLink className="navlink" to="/resetpasswordreq">
               Reset password
             </NavLink>
           </button>
           <br />
           <br />
-          <button className="save-button-white">
+          <button type="button" className="save-button-white">
             <NavLink className="navlink" to="/verify">
               Verify your account
             </NavLink>
