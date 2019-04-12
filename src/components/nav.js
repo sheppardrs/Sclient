@@ -90,7 +90,7 @@ Home
           </li>
           <li>
             <NavLink className="navlink" to="/posts/new">
-Add Post
+Post
             </NavLink>
           </li>
           <li>

@@ -38,7 +38,7 @@ const Landing = (props) => {
         <div className="landing-content">
           <h1>
 All
-            {'that\'s'}
+            {' that\'s'}
             {' '}
 missing is you
           </h1>
@@ -49,6 +49,9 @@ Sign Up
               </NavLink>
             </button>
           </div>
+          <p className="slogan">
+          Contact us with any feedback, questions, comments: sharitygive@gmail.com
+          </p>
         </div>
       </div>
     );
